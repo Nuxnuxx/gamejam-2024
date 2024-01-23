@@ -20,7 +20,7 @@ func _ready():
 				"Position": str(Vector2(x, y))
 			}
 	
-func _process(delta):
+func _process(_delta):
 	tile = local_to_map(get_global_mouse_position())
 	hover_objects = to_global(map_to_local(tile))
 	tile_data = tile_map.get_cell_tile_data(0, tile)
@@ -31,7 +31,7 @@ func _process(delta):
 		if Tab_tiles.has(str(tile)) && building_is_selected:
 			set_cell(1, tile, 1, Vector2i(0,0), 0)
 				
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("click") && tile_data && building_is_selected:
 		var tile_test : Vector2i = local_to_map(get_global_mouse_position())
 		var can_place_building = tile_data.get_custom_data(can_place_building_custom_data)	

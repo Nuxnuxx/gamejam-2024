@@ -13,7 +13,7 @@ var pos : Vector2
 func _ready():
 	add_to_group("BUILD", true)
 
-func _process(delta):
+func _process(_delta):
 	if !reloading:
 		reloading = true
 		attack_shoot()

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b7ts1k8cs045d" path="res://Actors/Ennemy/EnnemyShape/EnnemyShapeSprite/skeleton_sprite.tscn" id="1_3vgpt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wac6n"]
-size = Vector2(24, 19)
+size = Vector2(16, 16)
 
 [node name="skeleton" type="Area2D"]
 

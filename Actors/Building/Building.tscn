@@ -1,29 +1,78 @@
-[gd_scene load_steps=7 format=3 uid="uid://xegxwc3xy61w"]
+[gd_scene load_steps=13 format=3 uid="uid://xegxwc3xy61w"]
 
 [ext_resource type="Script" path="res://Actors/Building/Building.gd" id="1_5hbh2"]
+[ext_resource type="Texture2D" uid="uid://dq02cbbxn87x4" path="res://Sprites/Spritesheets/magic_tower_sheet.png" id="2_ti6e3"]
 [ext_resource type="PackedScene" uid="uid://by2qh5yds36wn" path="res://Actors/Building/projectile.tscn" id="2_xyavm"]
 
-[sub_resource type="Gradient" id="Gradient_3xod2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjw0o"]
+atlas = ExtResource("2_ti6e3")
+region = Rect2(0, 0, 16, 32)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gr2st"]
-gradient = SubResource("Gradient_3xod2")
-fill_from = Vector2(1, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddhlo"]
+atlas = ExtResource("2_ti6e3")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl5ja"]
+atlas = ExtResource("2_ti6e3")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyp6w"]
+atlas = ExtResource("2_ti6e3")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf8hr"]
+atlas = ExtResource("2_ti6e3")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgrqo"]
+atlas = ExtResource("2_ti6e3")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_df1h4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjw0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddhlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl5ja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyp6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf8hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgrqo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bh6v"]
-size = Vector2(64, 64)
+size = Vector2(16, 34.1333)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tgfk"]
-radius = 244.037
+radius = 116.0
 
 [node name="Building" type="Area2D"]
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.25, 0.234375)
 script = ExtResource("1_5hbh2")
 
-[node name="Sprite2d" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_gr2st")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_df1h4")
+autoplay = "default"
+frame_progress = 0.95339
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.62761e-05)
 shape = SubResource("RectangleShape2D_3bh6v")
 
 [node name="StartPointProjectile" type="Marker2D" parent="."]

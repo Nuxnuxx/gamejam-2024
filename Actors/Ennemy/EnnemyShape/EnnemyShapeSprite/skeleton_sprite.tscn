@@ -1,19 +1,90 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7ts1k8cs045d"]
+[gd_scene load_steps=11 format=3 uid="uid://b7ts1k8cs045d"]
 
-[ext_resource type="Texture2D" uid="uid://cdioqhgvwen3d" path="res://icon.svg" id="1_fknkt"]
+[ext_resource type="Texture2D" uid="uid://cniigd0qeuith" path="res://Sprites/Spritesheets/skeleton_sheet-basic.png" id="1_5aqwi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jecv"]
+atlas = ExtResource("1_5aqwi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eiaf"]
+atlas = ExtResource("1_5aqwi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc3ge"]
+atlas = ExtResource("1_5aqwi")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmr5b"]
+atlas = ExtResource("1_5aqwi")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqhte"]
+atlas = ExtResource("1_5aqwi")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6gcx"]
+atlas = ExtResource("1_5aqwi")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k77u"]
+atlas = ExtResource("1_5aqwi")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y537m"]
+atlas = ExtResource("1_5aqwi")
+region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lc18k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_fknkt")
+"texture": SubResource("AtlasTexture_1jecv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eiaf")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"walk_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc3ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmr5b")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqhte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6gcx")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k77u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y537m")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 3.0
 }]
 
 [node name="Sprite" type="AnimatedSprite2D"]
-position = Vector2(-1, -1.19209e-07)
-scale = Vector2(0.21875, 0.233398)
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_lc18k")
+animation = &"walk_down"
+autoplay = "walk_down"
+frame = 1
+frame_progress = 0.449042

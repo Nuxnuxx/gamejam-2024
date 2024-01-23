@@ -5,7 +5,7 @@ const WaweManager = preload("res://game_manager/wawe_manager.gd")
 
 var current_wawe = 0
 
-func _process(delta):
+func _process(_delta):
 	if spawner.wawe_is_running:
 		pass
 	else:

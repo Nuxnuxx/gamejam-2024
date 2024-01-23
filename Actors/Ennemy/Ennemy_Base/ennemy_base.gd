@@ -39,7 +39,7 @@ func move_to(node: Node)-> void:
 		velocity.y = direction.y * speed
 		move_and_slide()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var focused_node = get_focus_node()
 	move_to(focused_node)
 

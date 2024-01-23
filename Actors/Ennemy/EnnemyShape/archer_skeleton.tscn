@@ -3,12 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://by3a3wo076826" path="res://Actors/Ennemy/EnnemyShape/EnnemyShapeSprite/archer_skeleton_sprite.tscn" id="1_71tbs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wac6n"]
-size = Vector2(44, 120)
+size = Vector2(16, 16)
 
 [node name="archer_skeleton" type="Area2D"]
 
-[node name="Sprite" parent="." instance=ExtResource("1_71tbs")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_wac6n")
+
+[node name="Sprite" parent="." instance=ExtResource("1_71tbs")]
