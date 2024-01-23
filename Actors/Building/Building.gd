@@ -2,14 +2,18 @@ extends Area2D
 
 var mob_in_range = []
 var reloading = false
+var health = 0
+
+@export var delay_to_shoot: float = 1
+@export var max_health: float = 100
 
 @onready var projectile = $Projectile
-@export var delay_to_shoot: float = 1
 @onready var all_projectiles = $AllProjectiles
 @onready var start_point_projectile = $StartPointProjectile
 
 func _ready():
 	add_to_group("BUILD", true)
+	health = max_health
 
 func _process(delta):
 	if !reloading:
@@ -17,9 +21,12 @@ func _process(delta):
 		attack_shoot()
 		await get_tree().create_timer(delay_to_shoot).timeout
 		reloading = false
-		
 
-	
+func self_damage(amount):
+	health -= amount
+	if health <= 0:
+		queue_free()
+
 func attack_shoot():
 	var not_freed_mob_in_range = []
 	for mob in mob_in_range:
@@ -43,4 +50,9 @@ func _on_projectile_range_area_entered(area):
 
 func _on_projectile_range_area_exited(area):
 	if area.is_in_group("ENNEMY"):
-		pass
+		var updated_mob_in_range = []
+		for mob in mob_in_range:
+			if mob != area:
+				updated_mob_in_range.append(mob)
+		
+		mob_in_range = updated_mob_in_range

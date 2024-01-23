@@ -2,16 +2,23 @@ extends CharacterBody2D
 
 @export var health: float = 100
 @export var focus:int = 0
-
 @export var speed: float = 50.0
+@export var attacking_damages:float = 0
+@export var attacking_rate:float = 0
+@export var score_value: int = 0
 
 const game_manager = preload("res://game_manager/game_manager.gd")
 const wawe_manager = preload("res://game_manager/wawe_manager.gd")
+
 var attacking = false
+var attack_target = null
+var attack_cd = false
+
 
 func self_damage(amount: float):
 	health -= amount
 	if health <= 0:
+		game_manager.game_score += score_value
 		queue_free()
 	
 
@@ -38,14 +45,24 @@ func move_to(node: Node)-> void:
 		velocity.x = direction.x * speed
 		velocity.y = direction.y * speed
 		move_and_slide()
+		
+	elif attacking && !attack_cd:
+		attack_cd = true
+		attack_target.self_damage(attacking_damages)
+		await get_tree().create_timer(attacking_rate).timeout
+
+		attack_cd = false
 
 func _physics_process(delta):
 	var focused_node = get_focus_node()
-	move_to(focused_node)
+	if focused_node:
+		move_to(focused_node)
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("BUILD"):
 		attacking = true
+		attack_target = area
+		
 	elif area.is_in_group("PROJECTILE"):
 		self_damage(area.damage)
 		area.queue_free()
@@ -56,3 +73,4 @@ func _ready():
 func _on_area_2d_area_exited(area):
 		if area.is_in_group("BUILD"):
 			attacking = false
+			attack_target = null

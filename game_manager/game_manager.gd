@@ -14,6 +14,9 @@ const codex_ennemies = [
 		"speed": 50,
 		"health": 100,
 		"earning": 10,
+		"attacking_rate": 2,
+		"attacking_damages": 10,
+		"score_value": 5,
 	},
 	{
 		"name": "archer_skeleton",
@@ -22,8 +25,13 @@ const codex_ennemies = [
 		"speed": 150,
 		"health": 30,
 		"earning": 10,
+		"attacking_rate": 1.5,
+		"attacking_damages": 20,
+		"score_value": 8
 	}
 ]
+
+static var game_score = 0
 
 static func get_codex_entity_from_name(name:String):
 	for entity in codex_ennemies:
