@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca3o5e84r6wt6"]
+
+[sub_resource type="GDScript" id="GDScript_cqjix"]
+script/source = "extends Camera2D
+
+var is_zooming = false
+var zoom_factor = 0.2
+var zoom_max = 1.2
+
+func _process(_delta):
+	if Input.is_action_pressed(\"zoom\"):
+		if !is_zooming and zoom.x < zoom_max: global_position = get_global_mouse_position()
+			
+		is_zooming = true
+		zoom.x += zoom_factor
+		zoom.y += zoom_factor
+		
+	elif Input.is_action_pressed(\"unzoom\"):
+		zoom.x -= zoom_factor
+		zoom.y -= zoom_factor
+		is_zooming = false
+"
+
+[node name="Camera2D" type="Camera2D"]
+position_smoothing_enabled = true
+position_smoothing_speed = 11.0
+script = SubResource("GDScript_cqjix")

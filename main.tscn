@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=10 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://xegxwc3xy61w" path="res://Actors/Building/Building.tscn" id="2_i17st"]
 [ext_resource type="Script" path="res://Map/Spawner.gd" id="3_2pspj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Map/TimeManager.gd" id="4_28pcd"]
 [ext_resource type="Texture2D" uid="uid://dvnb0t5mjrkpo" path="res://UI/Powers/HolyBar.png" id="4_ki2pf"]
 [ext_resource type="Texture2D" uid="uid://b6e6urlclwphs" path="res://UI/Powers/HolyBar_Charge.png" id="5_6fn3k"]
+[ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
 
 [sub_resource type="FontFile" id="FontFile_nhsaq"]
 cache/0/320/0/ascent = 0.0
@@ -90,3 +91,6 @@ script = ExtResource("4_28pcd")
 [node name="Building3" parent="." instance=ExtResource("2_i17st")]
 position = Vector2(566, 580)
 scale = Vector2(3.34202, 2.82136)
+
+[node name="Camera2D" parent="." instance=ExtResource("7_5lsws")]
+position = Vector2(573, 334)
