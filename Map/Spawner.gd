@@ -7,8 +7,6 @@ const ennemy_base = preload("res://Actors/Ennemy/Ennemy_Base/Ennemy_Base.tscn")
 var ennemies_shape = game_manager.get_ennemies_shape()
 
 var wawe_is_running = false
-
-var wawe_test = { "archer_skeleton": 4, "skeleton": 7 }
 	
 func instance_entities_from_wawe(wawe: Dictionary)-> void:
 	var spawn_points = self.get_children()
@@ -35,10 +33,14 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 			index = (index + 1) % len(spawn_points)
 
 func _process(delta):
+	var child_found = false
 	var spawn_points = self.get_children()
 	for spawn_point in spawn_points:
 		if len(spawn_point.get_children()):
-			wawe_is_running = true
-
-func _ready():
-	instance_entities_from_wawe(wawe_test)
+			child_found = true
+	
+	
+	if child_found:
+		wawe_is_running= true
+	else:
+		wawe_is_running = false

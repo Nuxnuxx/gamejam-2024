@@ -9,8 +9,11 @@ func _ready():
 	add_to_group("PROJECTILE", true)
 
 func _physics_process(delta):
-	if target == null: return
-	
+	if target == null && visible:
+		queue_free()
+		return
+	elif target == null:
+		return
 	var direction = Vector2(target.global_position.x - global_position.x, target.global_position.y - global_position.y).normalized()
 	if direction.length() != 0:
 		global_position.x += direction.x * speed

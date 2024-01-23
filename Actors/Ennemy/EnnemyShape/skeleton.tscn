@@ -7,9 +7,7 @@ size = Vector2(24, 19)
 
 [node name="skeleton" type="Area2D"]
 
-[node name="Sprite" parent="." instance=ExtResource("1_3vgpt")]
-position = Vector2(-9.53674e-07, -4.76837e-07)
-scale = Vector2(0.0205078, 0.0163573)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wac6n")
+
+[node name="Sprite" parent="." instance=ExtResource("1_3vgpt")]

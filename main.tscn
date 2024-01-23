@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=7 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://xegxwc3xy61w" path="res://Actors/Building/Building.tscn" id="2_i17st"]
 [ext_resource type="Script" path="res://Map/Spawner.gd" id="3_2pspj"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
+[ext_resource type="Script" path="res://Map/TimeManager.gd" id="4_28pcd"]
 
 [sub_resource type="FontFile" id="FontFile_nhsaq"]
 cache/0/320/0/ascent = 0.0
@@ -51,6 +52,9 @@ position = Vector2(973, 519)
 [node name="SpawnPoint4" type="Marker2D" parent="Spawner"]
 position = Vector2(158, 505)
 
+[node name="SpawnPoint5" type="Marker2D" parent="Spawner"]
+position = Vector2(451, 596)
+
 [node name="Building" parent="." instance=ExtResource("2_i17st")]
 position = Vector2(830.25, 515.625)
 scale = Vector2(0.804688, 2.23047)
@@ -68,3 +72,10 @@ offset_bottom = 23.0
 text = "Wawe is running"
 label_settings = SubResource("LabelSettings_jf1jq")
 metadata/_edit_use_anchors_ = true
+
+[node name="TimeManager" type="Node" parent="."]
+script = ExtResource("4_28pcd")
+
+[node name="Building3" parent="." instance=ExtResource("2_i17st")]
+position = Vector2(573, 477)
+scale = Vector2(3.34202, 2.82136)
