@@ -12,7 +12,7 @@ var holy_timer = 4
 var holy_income = 4
 var holy_cd = false
 
-func _process(delta):
+func _process(_delta):
 	if spawner.wawe_is_running:
 		if !holy_cd:
 			holy_cd = true

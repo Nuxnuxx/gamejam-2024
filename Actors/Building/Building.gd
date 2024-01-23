@@ -17,7 +17,7 @@ func _ready():
 	add_to_group("BUILD", true)
 	health = max_health
 
-func _process(delta):
+func _process(_delta):
 	if !reloading:
 		reloading = true
 		attack_shoot()

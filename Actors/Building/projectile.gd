@@ -8,7 +8,7 @@ var target = null
 func _ready():
 	add_to_group("PROJECTILE", true)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if target == null && visible:
 		queue_free()
 		return

@@ -53,7 +53,7 @@ func move_to(node: Node)-> void:
 
 		attack_cd = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var focused_node = get_focus_node()
 	if focused_node:
 		move_to(focused_node)

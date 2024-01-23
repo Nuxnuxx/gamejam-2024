@@ -6,7 +6,7 @@ extends CanvasLayer
 
 const game_manager = preload("res://game_manager/game_manager.gd")
 
-func _process(delta):
+func _process(_delta):
 	if spawner.wawe_is_running:
 		label.visible = true
 		label.text = "Score: " + str(game_manager.game_score) + " Vague: " + str(time_manager.current_wawe)

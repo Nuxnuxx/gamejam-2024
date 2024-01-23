@@ -35,7 +35,7 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 			spawn_points[index].add_child(instance)
 			index = (index + 1) % len(spawn_points)
 
-func _process(delta):
+func _process(_delta):
 	var child_found = false
 	var spawn_points = get_children()
 	
