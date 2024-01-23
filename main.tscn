@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://q0kj70kue1w0"]
+
+[ext_resource type="PackedScene" uid="uid://cj0t6co6vbhsn" path="res://Actors/Ennemy/Ennemy1/Ennemy1.tscn" id="1_p0rf1"]
+[ext_resource type="PackedScene" uid="uid://c3j1nw5ro56tr" path="res://Game_Manager/Game_manager.tscn" id="2_jegb4"]
+[ext_resource type="Texture2D" uid="uid://cdioqhgvwen3d" path="res://icon.svg" id="3_m5vqb"]
+
+[node name="Main_Scene" type="Node2D"]
+
+[node name="Ennemy1" parent="." instance=ExtResource("1_p0rf1")]
+position = Vector2(375, 313)
+
+[node name="GameManager" parent="." instance=ExtResource("2_jegb4")]
+unique_name_in_owner = true
+
+[node name="cible" type="Sprite2D" parent="." groups=["BUILD"]]
+position = Vector2(167, 155)
+scale = Vector2(0.231934, 0.111328)
+texture = ExtResource("3_m5vqb")
+
+[node name="cible2" type="Sprite2D" parent="." groups=["BUILD"]]
+position = Vector2(587, 464)
+scale = Vector2(0.231934, 0.111328)
+texture = ExtResource("3_m5vqb")
