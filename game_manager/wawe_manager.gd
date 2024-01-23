@@ -50,7 +50,6 @@ static func get_mob_to_spawn(difficulty: int, pool_mob: Array)-> Dictionary:
 
 static func generate_wawe(wawe: int)-> Dictionary:
 	var difficulty = get_wawe_difficulty(wawe)
-	print(difficulty)
 	var pool_spawnable_mob = get_spawnable_mob(difficulty)
 	var current_difficulty = difficulty
 	var pool_mob_spawn = {}

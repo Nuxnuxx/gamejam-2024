@@ -34,13 +34,10 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 
 func _process(delta):
 	var child_found = false
-	var spawn_points = self.get_children()
+	var spawn_points = get_children()
+	
 	for spawn_point in spawn_points:
 		if len(spawn_point.get_children()):
 			child_found = true
 	
-	
-	if child_found:
-		wawe_is_running= true
-	else:
-		wawe_is_running = false
+	wawe_is_running = child_found
