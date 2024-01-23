@@ -1,19 +1,29 @@
 [gd_scene load_steps=3 format=3 uid="uid://q0kj70kue1w0"]
 
-[ext_resource type="PackedScene" uid="uid://cj0t6co6vbhsn" path="res://Actors/Ennemy/Skeleton/Skeleton.tscn" id="2_jegb4"]
-[ext_resource type="Texture2D" uid="uid://cdioqhgvwen3d" path="res://icon.svg" id="3_m5vqb"]
+[ext_resource type="PackedScene" uid="uid://xegxwc3xy61w" path="res://Actors/Building/Building.tscn" id="2_i17st"]
+[ext_resource type="Script" path="res://Map/Spawner.gd" id="3_2pspj"]
 
 [node name="Main_Scene" type="Node2D"]
 
-[node name="Ennemy1" parent="." instance=ExtResource("2_jegb4")]
-position = Vector2(375, 313)
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("3_2pspj")
 
-[node name="cible" type="Sprite2D" parent="." groups=["BUILD"]]
-position = Vector2(167, 155)
-scale = Vector2(0.231934, 0.111328)
-texture = ExtResource("3_m5vqb")
+[node name="SpawnPoint1" type="Marker2D" parent="Spawner"]
+position = Vector2(1032, 104)
 
-[node name="cible2" type="Sprite2D" parent="." groups=["BUILD"]]
-position = Vector2(587, 464)
-scale = Vector2(0.231934, 0.111328)
-texture = ExtResource("3_m5vqb")
+[node name="SpawnPoint2" type="Marker2D" parent="Spawner"]
+position = Vector2(107, 92)
+
+[node name="SpawnPoint3" type="Marker2D" parent="Spawner"]
+position = Vector2(973, 519)
+
+[node name="SpawnPoint4" type="Marker2D" parent="Spawner"]
+position = Vector2(158, 505)
+
+[node name="Building" parent="." instance=ExtResource("2_i17st")]
+position = Vector2(830.25, 515.625)
+scale = Vector2(0.804688, 2.23047)
+
+[node name="Building2" parent="." instance=ExtResource("2_i17st")]
+position = Vector2(388.5, 256.25)
+scale = Vector2(1.82812, 1.67969)

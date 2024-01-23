@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://xegxwc3xy61w"]
+
+[ext_resource type="Script" path="res://Actors/Building/Building.gd" id="1_5hbh2"]
+
+[sub_resource type="Gradient" id="Gradient_3xod2"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gr2st"]
+gradient = SubResource("Gradient_3xod2")
+fill_from = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bh6v"]
+size = Vector2(64, 64)
+
+[node name="Building" type="Area2D"]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(0.25, 0.234375)
+script = ExtResource("1_5hbh2")
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_gr2st")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3bh6v")

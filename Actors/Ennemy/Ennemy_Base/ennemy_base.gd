@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends CharacterBody2D 
 
 @export var health: float = 100
 @export var focus:int = 0
@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 const game_manager = preload("res://game_manager/game_manager.gd")
 const wawe_manager = preload("res://game_manager/wawe_manager.gd")
+var attacking = false
+
 func set_health_to_zero()-> void:
 	if health != 0:
 		health = 0
@@ -29,15 +31,16 @@ func get_focus_node()-> Node:
 	return closest_node
 
 func move_to(node: Node)-> void:
-	var direction = Vector2(node.global_position.x - global_position.x, node.global_position.y - global_position.y)
-	if direction.length() != 0:
-		velocity = direction.normalized() * speed
+	var direction = Vector2(node.global_position.x - global_position.x, node.global_position.y - global_position.y).normalized()
+	if direction.length() != 0 && !attacking:
+		velocity.x = direction.x * speed
+		velocity.y = direction.y * speed
 		move_and_slide()
-		
+
 func _physics_process(delta):
 	var focused_node = get_focus_node()
 	move_to(focused_node)
-	
-func _ready():
-	var result = wawe_manager.generate_wawe(10);
-	print(result)
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("BUILD"):
+		attacking = true
