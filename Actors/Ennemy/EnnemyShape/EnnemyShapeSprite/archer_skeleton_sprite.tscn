@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://by3a3wo076826"]
+
+[ext_resource type="Texture2D" uid="uid://cdioqhgvwen3d" path="res://icon.svg" id="1_k0enu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jpiil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k0enu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sprite" type="AnimatedSprite2D"]
+position = Vector2(-8.00001, -1.00001)
+scale = Vector2(0.149902, 0.158936)
+sprite_frames = SubResource("SpriteFrames_jpiil")

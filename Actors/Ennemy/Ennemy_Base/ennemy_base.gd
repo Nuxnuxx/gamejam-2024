@@ -44,3 +44,8 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("BUILD"):
 		attacking = true
+
+
+func _on_area_2d_area_exited(area):
+		if area.is_in_group("BUILD"):
+			attacking = false

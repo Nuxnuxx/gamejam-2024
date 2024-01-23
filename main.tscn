@@ -1,7 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=6 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://xegxwc3xy61w" path="res://Actors/Building/Building.tscn" id="2_i17st"]
 [ext_resource type="Script" path="res://Map/Spawner.gd" id="3_2pspj"]
+[ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
+
+[sub_resource type="FontFile" id="FontFile_nhsaq"]
+cache/0/320/0/ascent = 0.0
+cache/0/320/0/descent = 0.0
+cache/0/320/0/underline_position = 0.0
+cache/0/320/0/underline_thickness = 0.0
+cache/0/320/0/scale = 1.0
+cache/0/320/0/kerning_overrides/320/0 = Vector2(0, 0)
+cache/0/320/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/320/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/320/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/100/0 = Vector2(0, 0)
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/100/0/kerning_overrides/320/0 = Vector2(0, 0)
+cache/0/100/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/100/0/kerning_overrides/100/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jf1jq"]
+font = SubResource("FontFile_nhsaq")
+font_size = 100
 
 [node name="Main_Scene" type="Node2D"]
 
@@ -27,3 +58,13 @@ scale = Vector2(0.804688, 2.23047)
 [node name="Building2" parent="." instance=ExtResource("2_i17st")]
 position = Vector2(388.5, 256.25)
 scale = Vector2(1.82812, 1.67969)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("3_2s6iy")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Wawe is running"
+label_settings = SubResource("LabelSettings_jf1jq")
+metadata/_edit_use_anchors_ = true
