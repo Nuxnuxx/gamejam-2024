@@ -9,9 +9,11 @@ const game_manager = preload("res://game_manager/game_manager.gd")
 const wawe_manager = preload("res://game_manager/wawe_manager.gd")
 var attacking = false
 
-func set_health_to_zero()-> void:
-	if health != 0:
-		health = 0
+func self_damage(amount: float):
+	health -= amount
+	if health <= 0:
+		queue_free()
+	
 
 func get_focus_node()-> Node:
 	var focus_name = game_manager.type_focus[focus]
@@ -44,7 +46,12 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("BUILD"):
 		attacking = true
+	elif area.is_in_group("PROJECTILE"):
+		self_damage(area.damage)
+		area.queue_free()
 
+func _ready():
+	add_to_group("ENNEMY", true)
 
 func _on_area_2d_area_exited(area):
 		if area.is_in_group("BUILD"):

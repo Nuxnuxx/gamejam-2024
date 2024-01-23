@@ -14,6 +14,6 @@ animations = [{
 }]
 
 [node name="Sprite" type="AnimatedSprite2D"]
-position = Vector2(-8.00001, -1.00001)
-scale = Vector2(0.149902, 0.158936)
+position = Vector2(0, 0.999996)
+scale = Vector2(0.168884, 0.146088)
 sprite_frames = SubResource("SpriteFrames_jpiil")

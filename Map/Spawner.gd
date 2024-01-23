@@ -17,6 +17,7 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 	for entity_type in wawe:
 		var codex_info = game_manager.get_codex_entity_from_name(entity_type)
 		var ennemy_shape = ennemies_shape[entity_type].instantiate()
+		ennemy_shape.add_to_group("ENNEMY", true)
 		for index_instance in wawe[entity_type]:
 			await get_tree().create_timer(0.03).timeout
 			var instance = ennemy_base.instantiate()
@@ -29,7 +30,6 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 			instance.add_child(ennemy_shape.get_child(0).duplicate(),false,1)
 			# Dans ennemy base le premier element doit etre l'area2d
 			instance.get_child(0).add_child(ennemy_shape.get_child(1).duplicate(),false,1)
-
 
 			spawn_points[index].add_child(instance)
 			index = (index + 1) % len(spawn_points)

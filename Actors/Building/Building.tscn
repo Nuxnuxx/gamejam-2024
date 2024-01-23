@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://xegxwc3xy61w"]
+[gd_scene load_steps=7 format=3 uid="uid://xegxwc3xy61w"]
 
 [ext_resource type="Script" path="res://Actors/Building/Building.gd" id="1_5hbh2"]
+[ext_resource type="PackedScene" uid="uid://by2qh5yds36wn" path="res://Actors/Building/projectile.tscn" id="2_xyavm"]
 
 [sub_resource type="Gradient" id="Gradient_3xod2"]
 
@@ -10,6 +11,9 @@ fill_from = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bh6v"]
 size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0tgfk"]
+radius = 244.037
 
 [node name="Building" type="Area2D"]
 position = Vector2(0, 3.8147e-06)
@@ -21,3 +25,17 @@ texture = SubResource("GradientTexture2D_gr2st")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3bh6v")
+
+[node name="StartPointProjectile" type="Marker2D" parent="."]
+
+[node name="Projectile" parent="." instance=ExtResource("2_xyavm")]
+
+[node name="ProjectileRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProjectileRange"]
+shape = SubResource("CircleShape2D_0tgfk")
+
+[node name="AllProjectiles" type="Node" parent="."]
+
+[connection signal="area_entered" from="ProjectileRange" to="." method="_on_projectile_range_area_entered"]
+[connection signal="area_exited" from="ProjectileRange" to="." method="_on_projectile_range_area_exited"]
