@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://csnqj86xqkwhh"]
+
+[ext_resource type="Script" path="res://Map/Spawner.gd" id="1_oisun"]
+
+[node name="Spawner" type="Node"]
+script = ExtResource("1_oisun")
+
+[node name="SpawnPoint1" type="Marker2D" parent="."]
+position = Vector2(1032, 104)
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(107, 92)
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(973, 519)
+
+[node name="SpawnPoint4" type="Marker2D" parent="."]
+position = Vector2(158, 505)
+
+[node name="SpawnPoint5" type="Marker2D" parent="."]
+position = Vector2(451, 596)

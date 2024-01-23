@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=9 format=3 uid="uid://q0kj70kue1w0"]
 
-[ext_resource type="Script" path="res://Map/Spawner.gd" id="3_2pspj"]
+[ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
+[ext_resource type="PackedScene" uid="uid://xegxwc3xy61w" path="res://Actors/Building/Building.tscn" id="2_i17st"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
 [ext_resource type="Script" path="res://Map/TimeManager.gd" id="4_28pcd"]
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
@@ -39,23 +40,7 @@ font_size = 100
 
 [node name="Main_Scene" type="Node2D"]
 
-[node name="Spawner" type="Node" parent="."]
-script = ExtResource("3_2pspj")
-
-[node name="SpawnPoint1" type="Marker2D" parent="Spawner"]
-position = Vector2(1032, 104)
-
-[node name="SpawnPoint2" type="Marker2D" parent="Spawner"]
-position = Vector2(107, 92)
-
-[node name="SpawnPoint3" type="Marker2D" parent="Spawner"]
-position = Vector2(973, 519)
-
-[node name="SpawnPoint4" type="Marker2D" parent="Spawner"]
-position = Vector2(158, 505)
-
-[node name="SpawnPoint5" type="Marker2D" parent="Spawner"]
-position = Vector2(451, 596)
+[node name="Spawner" parent="." instance=ExtResource("1_p8xiu")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_2s6iy")
@@ -83,5 +68,8 @@ format = 2
 script = ExtResource("5_aep1n")
 
 [node name="batiments" type="Node" parent="."]
+
+[node name="Building" parent="." instance=ExtResource("2_i17st")]
+position = Vector2(325, 284)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="TileMap" method="_on_button_pressed"]
