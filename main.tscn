@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=8 format=3 uid="uid://q0kj70kue1w0"]
 
-[ext_resource type="PackedScene" uid="uid://xegxwc3xy61w" path="res://Actors/Building/Building.tscn" id="2_i17st"]
 [ext_resource type="Script" path="res://Map/Spawner.gd" id="3_2pspj"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
 [ext_resource type="Script" path="res://Map/TimeManager.gd" id="4_28pcd"]
+[ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
 
 [sub_resource type="FontFile" id="FontFile_nhsaq"]
 cache/0/320/0/ascent = 0.0
@@ -35,6 +35,8 @@ cache/0/100/0/kerning_overrides/100/0 = Vector2(0, 0)
 font = SubResource("FontFile_nhsaq")
 font_size = 100
 
+[sub_resource type="TileSet" id="TileSet_hil3c"]
+
 [node name="Main_Scene" type="Node2D"]
 
 [node name="Spawner" type="Node" parent="."]
@@ -55,14 +57,6 @@ position = Vector2(158, 505)
 [node name="SpawnPoint5" type="Marker2D" parent="Spawner"]
 position = Vector2(451, 596)
 
-[node name="Building" parent="." instance=ExtResource("2_i17st")]
-position = Vector2(830.25, 515.625)
-scale = Vector2(0.804688, 2.23047)
-
-[node name="Building2" parent="." instance=ExtResource("2_i17st")]
-position = Vector2(388.5, 256.25)
-scale = Vector2(1.82812, 1.67969)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_2s6iy")
 
@@ -73,9 +67,21 @@ text = "Wawe is running"
 label_settings = SubResource("LabelSettings_jf1jq")
 metadata/_edit_use_anchors_ = true
 
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 23.0
+offset_top = 114.0
+offset_right = 102.0
+offset_bottom = 145.0
+text = "batiment"
+
 [node name="TimeManager" type="Node" parent="."]
 script = ExtResource("4_28pcd")
 
-[node name="Building3" parent="." instance=ExtResource("2_i17st")]
-position = Vector2(573, 477)
-scale = Vector2(3.34202, 2.82136)
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_hil3c")
+format = 2
+script = ExtResource("5_aep1n")
+
+[node name="batiments" type="Node" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Button" to="TileMap" method="_on_button_pressed"]

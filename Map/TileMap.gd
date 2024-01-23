@@ -10,7 +10,7 @@ var hover_objects
 
 @onready var batiments = $"../batiments"
 @onready var tile_map = $"."
-const batiment = preload("res://buildings/Batiment.tscn") 
+const building = preload("res://Actors/Building/Building.tscn")
 
 func _ready():
 	for x in GridSize:
@@ -44,13 +44,12 @@ func _input(event):
 			print("no tile data")
 
 func place_building(pos: Vector2):
-	var batiment = batiment.instantiate()
+	var building = building.instantiate()
 	print(pos)
-	batiment.pos.x = pos.x
-	batiment.pos.y = pos.y - 8
-	batiment.is_set = true
-	batiments.add_child(batiment)
-	
+	building.pos.x = pos.x
+	building.pos.y = pos.y - 8
+	building.is_set = true
+	batiments.add_child(building)
 
 func _on_button_pressed():
 	building_is_selected = !building_is_selected

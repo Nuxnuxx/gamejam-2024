@@ -7,6 +7,8 @@ var reloading = false
 @export var delay_to_shoot: float = 1
 @onready var all_projectiles = $AllProjectiles
 @onready var start_point_projectile = $StartPointProjectile
+var is_set = false
+var pos : Vector2 
 
 func _ready():
 	add_to_group("BUILD", true)
@@ -17,7 +19,8 @@ func _process(delta):
 		attack_shoot()
 		await get_tree().create_timer(delay_to_shoot).timeout
 		reloading = false
-		
+	if is_set:
+		global_position = pos
 
 	
 func attack_shoot():
