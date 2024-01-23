@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq1gsov68063u"]
+
+[ext_resource type="PackedScene" uid="uid://b7ts1k8cs045d" path="res://Actors/Ennemy/EnnemyShape/EnnemyShapeSprite/skeleton_sprite.tscn" id="1_3vgpt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wac6n"]
+size = Vector2(24, 19)
+
+[node name="skeleton" type="Area2D"]
+
+[node name="Sprite" parent="." instance=ExtResource("1_3vgpt")]
+position = Vector2(1, -7.62939e-06)
+scale = Vector2(0.0449219, 0.0307614)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_wac6n")

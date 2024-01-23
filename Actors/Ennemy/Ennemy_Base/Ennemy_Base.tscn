@@ -1,21 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj0t6co6vbhsn"]
+[gd_scene load_steps=4 format=3 uid="uid://cj0t6co6vbhsn"]
 
 [ext_resource type="Script" path="res://Actors/Ennemy/Ennemy_Base/ennemy_base.gd" id="1_ybgna"]
-[ext_resource type="Texture2D" uid="uid://cdioqhgvwen3d" path="res://icon.svg" id="2_bbsvv"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0mhce"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_bbsvv")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oijeq"]
-radius = 76.0066
+radius = 92.0217
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5at6h"]
 radius = 28.2843
@@ -26,11 +14,6 @@ visibility_layer = 2
 collision_layer = 3
 collision_mask = 2
 script = ExtResource("1_ybgna")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0.999998, -1)
-scale = Vector2(0.149414, 0.164646)
-sprite_frames = SubResource("SpriteFrames_0mhce")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -43,3 +26,4 @@ shape = SubResource("CircleShape2D_5at6h")
 disabled = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
