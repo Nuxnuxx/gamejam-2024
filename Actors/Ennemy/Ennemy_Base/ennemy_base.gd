@@ -5,28 +5,28 @@ extends CharacterBody2D
 
 @export var speed: float = 50.0
 
-@onready var game_manager = get_node("/root/GameManager")
-
+const game_manager = preload("res://game_manager/game_manager.gd")
+const wawe_manager = preload("res://game_manager/wawe_manager.gd")
 func set_health_to_zero()-> void:
 	if health != 0:
 		health = 0
 
 func get_focus_node()-> Node:
-	var focusName = game_manager.Type_Focus[focus]
-	var focusedNode = get_tree().get_nodes_in_group(focusName)
+	var focus_name = game_manager.type_focus[focus]
+	var focused_node = get_tree().get_nodes_in_group(focus_name)
 	
-	var closestNode = null
-	var closestDistance = null
+	var closest_node = null
+	var closest_distance = null
 	
-	for node in focusedNode:
+	for node in focused_node:
 		var distance = sqrt(pow(node.global_position.x - global_position.x, 2) + pow(node.global_position.y - global_position.y, 2))
-		if closestDistance == null:
-			closestNode = node
-			closestDistance = distance
-		elif closestDistance >= distance:
-			closestNode = node
-			closestDistance = distance
-	return closestNode
+		if closest_distance == null:
+			closest_node = node
+			closest_distance = distance
+		elif closest_distance >= distance:
+			closest_node = node
+			closest_distance = distance
+	return closest_node
 
 func move_to(node: Node)-> void:
 	var direction = Vector2(node.global_position.x - global_position.x, node.global_position.y - global_position.y)
@@ -35,5 +35,9 @@ func move_to(node: Node)-> void:
 		move_and_slide()
 		
 func _physics_process(delta):
-	var focusedNode = get_focus_node()
-	move_to(focusedNode)
+	var focused_node = get_focus_node()
+	move_to(focused_node)
+	
+func _ready():
+	var result = wawe_manager.generate_wawe(10);
+	print(result)
