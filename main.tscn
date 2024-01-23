@@ -1,10 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://q0kj70kue1w0"]
 
-[ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="PackedScene" uid="uid://xegxwc3xy61w" path="res://Actors/Building/Building.tscn" id="2_i17st"]
+[ext_resource type="Script" path="res://Map/Spawner.gd" id="3_2pspj"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
 [ext_resource type="Script" path="res://Map/TimeManager.gd" id="4_28pcd"]
-[ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
+[ext_resource type="Texture2D" uid="uid://dvnb0t5mjrkpo" path="res://UI/Powers/HolyBar.png" id="4_ki2pf"]
+[ext_resource type="Texture2D" uid="uid://b6e6urlclwphs" path="res://UI/Powers/HolyBar_Charge.png" id="5_6fn3k"]
 
 [sub_resource type="FontFile" id="FontFile_nhsaq"]
 cache/0/320/0/ascent = 0.0
@@ -36,11 +37,33 @@ cache/0/100/0/kerning_overrides/100/0 = Vector2(0, 0)
 font = SubResource("FontFile_nhsaq")
 font_size = 100
 
-[sub_resource type="TileSet" id="TileSet_hil3c"]
-
 [node name="Main_Scene" type="Node2D"]
 
-[node name="Spawner" parent="." instance=ExtResource("1_p8xiu")]
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("3_2pspj")
+
+[node name="SpawnPoint1" type="Marker2D" parent="Spawner"]
+position = Vector2(1032, 104)
+
+[node name="SpawnPoint2" type="Marker2D" parent="Spawner"]
+position = Vector2(107, 92)
+
+[node name="SpawnPoint3" type="Marker2D" parent="Spawner"]
+position = Vector2(973, 519)
+
+[node name="SpawnPoint4" type="Marker2D" parent="Spawner"]
+position = Vector2(158, 505)
+
+[node name="SpawnPoint5" type="Marker2D" parent="Spawner"]
+position = Vector2(451, 596)
+
+[node name="Building" parent="." instance=ExtResource("2_i17st")]
+position = Vector2(830.25, 515.625)
+scale = Vector2(0.804688, 2.23047)
+
+[node name="Building2" parent="." instance=ExtResource("2_i17st")]
+position = Vector2(388.5, 256.25)
+scale = Vector2(1.82812, 1.67969)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_2s6iy")
@@ -52,24 +75,18 @@ text = "Wawe is running"
 label_settings = SubResource("LabelSettings_jf1jq")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 23.0
-offset_top = 114.0
-offset_right = 102.0
-offset_bottom = 145.0
-text = "batiment"
+[node name="HolyBar" type="TextureProgressBar" parent="CanvasLayer"]
+texture_filter = 1
+offset_right = 21.0
+offset_bottom = 50.0
+scale = Vector2(6, 6)
+fill_mode = 3
+texture_over = ExtResource("4_ki2pf")
+texture_progress = ExtResource("5_6fn3k")
 
 [node name="TimeManager" type="Node" parent="."]
 script = ExtResource("4_28pcd")
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_hil3c")
-format = 2
-script = ExtResource("5_aep1n")
-
-[node name="batiments" type="Node" parent="."]
-
-[node name="Building" parent="." instance=ExtResource("2_i17st")]
-position = Vector2(325, 284)
-
-[connection signal="pressed" from="CanvasLayer/Button" to="TileMap" method="_on_button_pressed"]
+[node name="Building3" parent="." instance=ExtResource("2_i17st")]
+position = Vector2(566, 580)
+scale = Vector2(3.34202, 2.82136)

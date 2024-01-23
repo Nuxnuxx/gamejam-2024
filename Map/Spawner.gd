@@ -23,6 +23,9 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 			instance.health = codex_info.health
 			instance.speed = codex_info.speed
 			instance.global_position = spawn_points[index].global_position
+			instance.attacking_damages = codex_info.attacking_damages
+			instance.attacking_rate = codex_info.attacking_rate
+			instance.score_value = codex_info.score_value
 			
 			# Dans ennemy shape le premier element doit etre le sprite et le deuxieme, la collideBox
 			instance.add_child(ennemy_shape.get_child(0).duplicate(),false,1)
@@ -34,13 +37,10 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 
 func _process(delta):
 	var child_found = false
-	var spawn_points = self.get_children()
+	var spawn_points = get_children()
+	
 	for spawn_point in spawn_points:
-		if len(spawn_point.get_children()):
+		if len(spawn_point.get_children()) > 0:
 			child_found = true
 	
-	
-	if child_found:
-		wawe_is_running= true
-	else:
-		wawe_is_running = false
+	wawe_is_running = child_found
