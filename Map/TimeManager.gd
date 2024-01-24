@@ -4,7 +4,7 @@ extends Node
 @onready var spawner = $"../Spawner"
 const WaweManager = preload("res://game_manager/wawe_manager.gd")
 
-var current_wawe = 1
+var current_wawe = 10
 var generate_wave = false
 
 var holy_score = 0

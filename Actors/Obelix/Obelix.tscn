@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://bhr5so0ig54lm"]
+
+[ext_resource type="Texture2D" uid="uid://cexo6uvrudi3p" path="res://Sprites/Spritesheets/obelix.png" id="1_faxv0"]
+[ext_resource type="Script" path="res://Actors/Building/Building.gd" id="1_x8dop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnyql"]
+atlas = ExtResource("1_faxv0")
+region = Rect2(0, 0, 18, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74s6u"]
+atlas = ExtResource("1_faxv0")
+region = Rect2(18, 0, 18, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xnjn"]
+atlas = ExtResource("1_faxv0")
+region = Rect2(36, 0, 18, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nna8t"]
+atlas = ExtResource("1_faxv0")
+region = Rect2(54, 0, 18, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjq48"]
+atlas = ExtResource("1_faxv0")
+region = Rect2(72, 0, 18, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eia0g"]
+atlas = ExtResource("1_faxv0")
+region = Rect2(90, 0, 18, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eli5"]
+atlas = ExtResource("1_faxv0")
+region = Rect2(108, 0, 18, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gce8r"]
+atlas = ExtResource("1_faxv0")
+region = Rect2(126, 0, 18, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_df1h4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnyql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74s6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xnjn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nna8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjq48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eia0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4eli5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gce8r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bh6v"]
+size = Vector2(56, 183.467)
+
+[node name="Obelix" type="Area2D"]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(0.25, 0.234375)
+script = ExtResource("1_x8dop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_df1h4")
+autoplay = "default"
+frame_progress = 0.95339
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -36.2667)
+shape = SubResource("RectangleShape2D_3bh6v")

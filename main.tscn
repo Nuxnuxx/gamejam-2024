@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=18 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
+[ext_resource type="PackedScene" uid="uid://bhr5so0ig54lm" path="res://Actors/Obelix/Obelix.tscn" id="11_ecwpp"]
 
 [sub_resource type="FontFile" id="FontFile_nhsaq"]
 cache/0/320/0/ascent = 0.0
@@ -132,5 +133,8 @@ script = ExtResource("5_aep1n")
 
 [node name="Camera2D" parent="." instance=ExtResource("7_5lsws")]
 position = Vector2(606, 252)
+
+[node name="Obelix" parent="." instance=ExtResource("11_ecwpp")]
+position = Vector2(607, 252)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="TileMap" method="_on_button_pressed"]

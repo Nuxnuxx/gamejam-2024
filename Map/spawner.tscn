@@ -6,16 +6,22 @@
 script = ExtResource("1_oisun")
 
 [node name="SpawnPoint1" type="Marker2D" parent="."]
-position = Vector2(1032, 104)
+position = Vector2(977, 70)
 
 [node name="SpawnPoint2" type="Marker2D" parent="."]
-position = Vector2(107, 92)
+position = Vector2(1445, 66)
 
 [node name="SpawnPoint3" type="Marker2D" parent="."]
-position = Vector2(973, 519)
+position = Vector2(1410, 731)
 
 [node name="SpawnPoint4" type="Marker2D" parent="."]
-position = Vector2(158, 505)
+position = Vector2(431, 101)
 
 [node name="SpawnPoint5" type="Marker2D" parent="."]
-position = Vector2(451, 596)
+position = Vector2(324, 418)
+
+[node name="SpawnPoint6" type="Marker2D" parent="."]
+position = Vector2(1875, 166)
+
+[node name="SpawnPoint7" type="Marker2D" parent="."]
+position = Vector2(325, 674)
