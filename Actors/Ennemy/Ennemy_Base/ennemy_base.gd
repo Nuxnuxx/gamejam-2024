@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var attacking_damages:float = 0
 @export var attacking_rate:float = 0
 @export var score_value: int = 0
+@export var sound: String = ""
 
 const game_manager = preload("res://game_manager/game_manager.gd")
 const wawe_manager = preload("res://game_manager/wawe_manager.gd")
@@ -14,12 +15,16 @@ var attacking = false
 var attack_target = null
 var attack_cd = false
 
+var sound_node = null
+
 
 func self_damage(amount: float):
 	health -= amount
 	if health <= 0:
 		game_manager.game_score += score_value
 		queue_free()
+		if sound_node != null:
+			sound_node.get_node("Death").play()
 	
 
 func get_focus_node()-> Node:
@@ -58,6 +63,8 @@ func move_to(node: Node)-> void:
 		
 	elif attacking && !attack_cd:
 		attack_cd = true
+		if sound_node != null:
+			sound_node.get_node("Death").play()
 		attack_target.self_damage(attacking_damages)
 		await get_tree().create_timer(attacking_rate).timeout
 
@@ -79,6 +86,7 @@ func _on_area_2d_area_entered(area):
 
 func _ready():
 	add_to_group("ENNEMY", true)
+	sound_node = get_node(sound)
 
 func _on_area_2d_area_exited(area):
 		if area.is_in_group("BUILD"):

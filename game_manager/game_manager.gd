@@ -17,6 +17,7 @@ const codex_ennemies = [
 		"attacking_rate": 2,
 		"attacking_damages": 10,
 		"score_value": 5,
+		"sound": "skeleton", 
 	},
 	{
 		"name": "skeleton_rouge",
@@ -28,6 +29,7 @@ const codex_ennemies = [
 		"attacking_rate": 2.5,
 		"attacking_damages": 20,
 		"score_value": 7,
+		"sound": "skeleton",
 	},
 	{
 		"name": "skeleton_bleu",
@@ -39,6 +41,7 @@ const codex_ennemies = [
 		"attacking_rate": 1.5,
 		"attacking_damages": 5,
 		"score_value": 7,
+		"sound": "skeleton",
 	},
 	
 	{
@@ -51,6 +54,7 @@ const codex_ennemies = [
 		"attacking_rate": 2,
 		"attacking_damages": 15,
 		"score_value": 7,
+		"sound": "ghost",
 	},
 	{
 		"name": "ghost_rouge",
@@ -62,6 +66,7 @@ const codex_ennemies = [
 		"attacking_rate": 2.5,
 		"attacking_damages": 25,
 		"score_value": 9,
+		"sound": "ghost",
 	},
 	{
 		"name": "ghost_bleu",
@@ -73,6 +78,7 @@ const codex_ennemies = [
 		"attacking_rate": 1.5,
 		"attacking_damages": 10,
 		"score_value": 9,
+		"sound": "ghost",
 	},
 	
 	{
@@ -85,6 +91,7 @@ const codex_ennemies = [
 		"attacking_rate": 2,
 		"attacking_damages": 30,
 		"score_value": 15,
+		"sound": "knight",
 	},
 	{
 		"name": "knight_rouge",
@@ -96,6 +103,7 @@ const codex_ennemies = [
 		"attacking_rate": 2.5,
 		"attacking_damages": 50,
 		"score_value": 18,
+		"sound": "knight",
 	},
 	{
 		"name": "knight_bleu",
@@ -107,6 +115,31 @@ const codex_ennemies = [
 		"attacking_rate": 1.5,
 		"attacking_damages": 30,
 		"score_value": 20,
+		"sound": "knight",
+	},
+	{
+		"name": "snake",
+		"difficulty": 25,
+		"difficulty_min": 280,
+		"speed": 95,
+		"health": 200,
+		"earning": 44,
+		"attacking_rate": 1.7,
+		"attacking_damages": 70,
+		"score_value": 40,
+		"sound": "snake",
+	},
+	{
+		"name": "fire_boss",
+		"difficulty": 35,
+		"difficulty_min": 300,
+		"speed": 30,
+		"health": 700,
+		"earning": 100,
+		"attacking_rate": 1,
+		"attacking_damages": 100,
+		"score_value": 60,
+		"sound": "fire_boss",
 	},
 ]
 static var game_score = 0

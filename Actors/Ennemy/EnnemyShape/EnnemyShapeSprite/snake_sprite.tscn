@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://d05sxcl3dk3l7"]
+
+[ext_resource type="Texture2D" uid="uid://b7tnfnkq8xuf8" path="res://Sprites/Spritesheets/Serpents.png" id="1_n08mv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx0up"]
+atlas = ExtResource("1_n08mv")
+region = Rect2(30, 0, 30, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xwcx"]
+atlas = ExtResource("1_n08mv")
+region = Rect2(60, 0, 30, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3b8u"]
+atlas = ExtResource("1_n08mv")
+region = Rect2(90, 0, 30, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th0d8"]
+atlas = ExtResource("1_n08mv")
+region = Rect2(0, 0, 30, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0og01"]
+atlas = ExtResource("1_n08mv")
+region = Rect2(120, 0, 30, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bm5g"]
+atlas = ExtResource("1_n08mv")
+region = Rect2(150, 0, 30, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lc18k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx0up")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xwcx")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3b8u")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th0d8")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0og01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bm5g")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 3.0
+}]
+
+[node name="Sprite" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lc18k")
+animation = &"walk_down"
+autoplay = "walk_down"
+frame_progress = 0.888296
