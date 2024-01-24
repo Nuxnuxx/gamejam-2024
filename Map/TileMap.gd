@@ -44,7 +44,8 @@ func _input(_event):
 				place_building(to_global(map_to_local(tile)))
 				set_cell(3, tile, 0, Vector2(0,1), 0)
 			else:
-				canvas_layer.pop_up("Impossible a placer")
+				var msg:String = "Impossible de le placer ("+ str(time_manager.holy_score) + "/10)"
+				canvas_layer.pop_up(msg)
 		else:
 			pass
 
