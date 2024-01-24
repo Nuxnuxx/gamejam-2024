@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://5iplr0csl7j6"]
+
+[ext_resource type="PackedScene" uid="uid://vo8ta0s5edli" path="res://Actors/Ennemy/EnnemyShape/EnnemyShapeSprite/knight_bleu_sprite.tscn" id="1_qdfga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wac6n"]
+size = Vector2(16, 16)
+
+[node name="knight_bleu" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wac6n")
+
+[node name="Sprite" parent="." instance=ExtResource("1_qdfga")]

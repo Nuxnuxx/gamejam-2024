@@ -7,6 +7,7 @@ var health = 0
 @export var delay_to_shoot: float = 1
 @export var max_health: float = 100
 
+var collapse = preload("res://Sounds/tower-fireball.wav")
 const projectile = preload("res://Actors/Building/projectile.tscn")
 @onready var all_projectiles = $AllProjectiles
 @onready var start_point_projectile = $StartPointProjectile
@@ -30,7 +31,6 @@ func self_damage(amount):
 	health -= amount
 	if health <= 0:
 		queue_free()
-		$Collapse.play()
 
 func attack_shoot():
 	var not_freed_mob_in_range = []

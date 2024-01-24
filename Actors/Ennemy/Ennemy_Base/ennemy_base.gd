@@ -72,12 +72,10 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("BUILD"):
 		attacking = true
 		attack_target = area
-		$Attack.play()
 		
 	elif area.is_in_group("PROJECTILE"):
 		self_damage(area.damage)
 		area.queue_free()
-		$Death.play()
 
 func _ready():
 	add_to_group("ENNEMY", true)
