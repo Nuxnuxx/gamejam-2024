@@ -102,7 +102,7 @@ offset_top = 6.0
 offset_right = 85.0
 offset_bottom = 37.0
 toggle_mode = true
-text = "Tour"
+text = "Tour de feu"
 metadata/_edit_use_anchors_ = true
 
 [node name="HolyBar" type="TextureProgressBar" parent="CanvasLayer"]
