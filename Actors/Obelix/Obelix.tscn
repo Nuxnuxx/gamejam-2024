@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhr5so0ig54lm"]
+[gd_scene load_steps=17 format=3 uid="uid://bhr5so0ig54lm"]
 
 [ext_resource type="Texture2D" uid="uid://cexo6uvrudi3p" path="res://Sprites/Spritesheets/obelix.png" id="1_faxv0"]
 [ext_resource type="Script" path="res://Actors/Building/Building.gd" id="1_x8dop"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xsx4c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnyql"]
 atlas = ExtResource("1_faxv0")
@@ -70,6 +72,18 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3bh6v"]
 size = Vector2(56, 183.467)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wda4m"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_6m31l"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_okjn7"]
+gradient = SubResource("Gradient_6m31l")
+fill = 1
+fill_from = Vector2(0.495671, 0.504329)
+fill_to = Vector2(0.854978, 0.190476)
+
 [node name="Obelix" type="Area2D"]
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.25, 0.234375)
@@ -77,6 +91,8 @@ script = ExtResource("1_x8dop")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_xsx4c")
+position = Vector2(0, -1.09139e-11)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_df1h4")
 autoplay = "default"
@@ -87,3 +103,11 @@ offset = Vector2(0, -8)
 texture_filter = 1
 position = Vector2(0, -36.2667)
 shape = SubResource("RectangleShape2D_3bh6v")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+material = SubResource("CanvasItemMaterial_wda4m")
+position = Vector2(0, -25.6)
+scale = Vector2(9.4375, 9.4375)
+color = Color(0.478431, 1, 1, 1)
+energy = 0.3
+texture = SubResource("GradientTexture2D_okjn7")
