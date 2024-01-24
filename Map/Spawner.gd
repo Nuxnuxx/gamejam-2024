@@ -26,6 +26,7 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 			instance.attacking_damages = codex_info.attacking_damages
 			instance.attacking_rate = codex_info.attacking_rate
 			instance.score_value = codex_info.score_value
+			instance.sound = codex_info.sound
 			
 			# Dans ennemy shape le premier element doit etre le sprite et le deuxieme, la collideBox
 			instance.add_child(ennemy_shape.get_child(1).duplicate(),false,1)
