@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=23 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bm6t2f7vj036h" path="res://Sprites/Spritesheets/layer_select_sheet.png" id="5_0e3x1"]
 [ext_resource type="Texture2D" uid="uid://b6e6urlclwphs" path="res://UI/Powers/HolyBar_Charge.png" id="5_6fn3k"]
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
+[ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
 [ext_resource type="PackedScene" uid="uid://bhr5so0ig54lm" path="res://Actors/Obelix/Obelix.tscn" id="11_ecwpp"]
@@ -21,6 +22,13 @@ fog_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_polbt"]
 font_size = 40
+
+[sub_resource type="Gradient" id="Gradient_kqh7f"]
+offsets = PackedFloat32Array(0.959016, 0.97541)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e5t5m"]
+gradient = SubResource("Gradient_kqh7f")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jero"]
 texture = ExtResource("4_b5y7g")
@@ -166,6 +174,61 @@ text = "1000"
 label_settings = SubResource("LabelSettings_polbt")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Fin" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 31.0
+offset_top = -31.0
+offset_right = 1195.0
+offset_bottom = 622.0
+script = ExtResource("5_p8qoh")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Fin"]
+layout_mode = 0
+offset_left = -40.0
+offset_top = 3.0
+offset_right = 1137.0
+offset_bottom = 691.0
+texture = SubResource("GradientTexture2D_e5t5m")
+
+[node name="Label" type="Label" parent="CanvasLayer/Fin"]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 56.0
+offset_right = 647.0
+offset_bottom = 145.0
+text = "Bien jouer mon fromton"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Fin"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -439.0
+offset_top = 290.0
+offset_right = -347.0
+offset_bottom = 345.0
+grow_horizontal = 2
+text = "1000"
+label_settings = SubResource("LabelSettings_polbt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Fin"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -417.0
+offset_top = 254.0
+offset_right = -375.0
+offset_bottom = 277.0
+grow_horizontal = 2
+text = "score"
 
 [node name="TimeManager" type="Node" parent="."]
 script = ExtResource("4_28pcd")

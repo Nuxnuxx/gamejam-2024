@@ -9,6 +9,7 @@ const WaweManager = preload("res://game_manager/wawe_manager.gd")
 
 var current_wawe = 50
 var generate_wave = false
+var end_game = false
 
 var holy_score = 10
 var holy_timer = 4
@@ -42,4 +43,3 @@ func _process(delta):
 		spawner.instance_entities_from_wawe(wawe)
 	else:
 		generate_wave = false
-	print(holy_score)

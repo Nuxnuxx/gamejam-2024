@@ -109,7 +109,6 @@ const codex_ennemies = [
 		"score_value": 20,
 	},
 ]
-
 static var game_score = 0
 
 static func get_codex_entity_from_name(name:String):
