@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
 [ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
 [ext_resource type="AudioStream" uid="uid://bphlh45q6wwak" path="res://Music/main-theme.wav" id="6_4q420"]
+[ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
 [ext_resource type="AudioStream" uid="uid://ckcn1g8bacwad" path="res://Music/battle-theme.wav" id="7_eojlu"]
@@ -282,6 +283,13 @@ stream = ExtResource("7_eojlu")
 [node name="build" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("14_ypw85")
 
+[node name="battle" type="AudioStreamPlayer" parent="TimeManager/sound"]
+stream = ExtResource("7_eojlu")
+volume_db = -4.868
+
+[node name="day" type="AudioStreamPlayer" parent="TimeManager/sound"]
+stream = ExtResource("14_ypw85")
+volume_db = -6.638
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_hil3c")
