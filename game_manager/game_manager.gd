@@ -141,6 +141,18 @@ const codex_ennemies = [
 		"score_value": 60,
 		"sound": "fire_boss",
 	},
+	{
+		"name": "ice_boss",
+		"difficulty": 37,
+		"difficulty_min": 300,
+		"speed": 50,
+		"health": 500,
+		"earning": 100,
+		"attacking_rate": 2,
+		"attacking_damages": 80,
+		"score_value": 65,
+		"sound": "fire_boss",
+	},
 ]
 static var game_score = 0
 
