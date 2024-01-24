@@ -1,62 +1,47 @@
-[gd_scene load_steps=19 format=3 uid="uid://drm2ml7jpqal3"]
+[gd_scene load_steps=18 format=3 uid="uid://drm2ml7jpqal3"]
 
-[ext_resource type="Texture2D" uid="uid://bpgjbvm6y7cwl" path="res://Thunder.png" id="1_n73r8"]
 [ext_resource type="Script" path="res://HolyPowers/tunder_power.gd" id="1_nqabc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mcp7"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(288, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkuyv"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(0, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkcu8"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(96, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5a8yc"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(192, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fncha"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(288, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y44gv"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(384, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ymhi"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(480, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_013p6"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(576, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3bkt"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(672, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlyxr"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(768, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_givou"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(864, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctdkh"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(960, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uiajy"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(1056, 0, 96, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2210k"]
-atlas = ExtResource("1_n73r8")
 region = Rect2(1152, 0, 96, 104)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1pl0d"]

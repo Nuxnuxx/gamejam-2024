@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=20 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
 [ext_resource type="PackedScene" uid="uid://bhr5so0ig54lm" path="res://Actors/Obelix/Obelix.tscn" id="11_ecwpp"]
+[ext_resource type="Script" path="res://HolyPowers.gd" id="12_frwvm"]
+[ext_resource type="PackedScene" uid="uid://drm2ml7jpqal3" path="res://HolyPowers/tunder_power.tscn" id="13_yvpcy"]
 
 [sub_resource type="FontFile" id="FontFile_nhsaq"]
 cache/0/320/0/ascent = 0.0
@@ -103,6 +105,7 @@ offset_left = 23.0
 offset_top = 114.0
 offset_right = 102.0
 offset_bottom = 145.0
+toggle_mode = true
 text = "batiment"
 
 [node name="HolyBar" type="TextureProgressBar" parent="CanvasLayer"]
@@ -115,6 +118,14 @@ scale = Vector2(3, 3)
 fill_mode = 3
 texture_over = ExtResource("4_ki2pf")
 texture_progress = ExtResource("5_6fn3k")
+
+[node name="TunderPower" type="Button" parent="CanvasLayer"]
+offset_left = 34.0
+offset_top = 509.0
+offset_right = 228.0
+offset_bottom = 570.0
+toggle_mode = true
+text = "Saucisse pouvoir"
 
 [node name="TimeManager" type="Node" parent="."]
 script = ExtResource("4_28pcd")
@@ -137,4 +148,10 @@ position = Vector2(606, 252)
 [node name="Obelix" parent="." instance=ExtResource("11_ecwpp")]
 position = Vector2(607, 252)
 
+[node name="HolyPowers" type="Node2D" parent="."]
+script = ExtResource("12_frwvm")
+
+[node name="TunderPower" parent="HolyPowers" instance=ExtResource("13_yvpcy")]
+
 [connection signal="pressed" from="CanvasLayer/Button" to="TileMap" method="_on_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/TunderPower" to="HolyPowers" method="_on_tunder_power_toggled"]
