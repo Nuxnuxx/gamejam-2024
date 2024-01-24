@@ -8,6 +8,7 @@ func self_damage(amount):
 	health -= amount
 	if health <= 0:
 		time_manager.generate_wave = false
+		$AudioStreamPlayer.play()
 		time_manager.end_game = true
 		queue_free()
 

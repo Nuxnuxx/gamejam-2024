@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bphlh45q6wwak" path="res://Music/main-theme.wav" id="6_4q420"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
-[ext_resource type="AudioStream" uid="uid://ckcn1g8bacwad" path="res://Music/battle-theme.wav" id="7_eojlu"]
+[ext_resource type="AudioStream" uid="uid://dx7d7rlcoyesy" path="res://Music/battle-theme.wav" id="7_eojlu"]
 [ext_resource type="PackedScene" uid="uid://bhr5so0ig54lm" path="res://Actors/Obelix/Obelix.tscn" id="11_ecwpp"]
 [ext_resource type="Script" path="res://HolyPowers.gd" id="12_frwvm"]
 [ext_resource type="PackedScene" uid="uid://drm2ml7jpqal3" path="res://HolyPowers/tunder_power.tscn" id="13_yvpcy"]
@@ -164,7 +164,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.525
-anchor_top = 0.05
+anchor_top = -0.025
 anchor_right = 0.55
 anchor_bottom = -0.025
 offset_left = 535.0
@@ -289,16 +289,18 @@ script = ExtResource("4_28pcd")
 
 [node name="accueil" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("6_4q420")
+volume_db = -21.435
 
 [node name="battle" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("7_eojlu")
+volume_db = -10.0
 
 [node name="build" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("14_ypw85")
 
 [node name="battle2" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("7_eojlu")
-volume_db = -4.868
+volume_db = -10.0
 
 [node name="day" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("14_ypw85")
