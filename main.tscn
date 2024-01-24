@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=28 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -6,11 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://0kxq6pn8sh3n" path="res://Sprites/Spritesheets/background_tiles.png" id="4_b5y7g"]
 [ext_resource type="Texture2D" uid="uid://dvnb0t5mjrkpo" path="res://UI/Powers/HolyBar.png" id="4_ki2pf"]
 [ext_resource type="Texture2D" uid="uid://bm6t2f7vj036h" path="res://Sprites/Spritesheets/layer_select_sheet.png" id="5_0e3x1"]
+[ext_resource type="Texture2D" uid="uid://bnggsj8kbqpgi" path="res://UI/DecoTextUp.png" id="5_2nhu2"]
 [ext_resource type="Texture2D" uid="uid://b6e6urlclwphs" path="res://UI/Powers/HolyBar_Charge.png" id="5_6fn3k"]
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
 [ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
+[ext_resource type="Texture2D" uid="uid://nwecrm0vsdql" path="res://UI/DecoTextDown.png" id="6_1s7dg"]
 [ext_resource type="AudioStream" uid="uid://bphlh45q6wwak" path="res://Music/main-theme.wav" id="6_4q420"]
-[ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
 [ext_resource type="AudioStream" uid="uid://ckcn1g8bacwad" path="res://Music/battle-theme.wav" id="7_eojlu"]
@@ -159,8 +160,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 535.0
+offset_top = 13.0
 offset_right = 577.0
-offset_bottom = 23.0
+offset_bottom = 36.0
 grow_horizontal = 2
 text = "score"
 
@@ -170,14 +172,38 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 510.0
-offset_top = 10.0
+offset_top = 26.0
 offset_right = 602.0
-offset_bottom = 65.0
+offset_bottom = 81.0
 grow_horizontal = 2
 text = "1000"
 label_settings = SubResource("LabelSettings_polbt")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TopDeco" type="TextureRect" parent="CanvasLayer/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 500.0
+offset_top = -8.0
+offset_right = 612.0
+offset_bottom = 24.0
+grow_horizontal = 2
+texture = ExtResource("5_2nhu2")
+
+[node name="DownDeco" type="TextureRect" parent="CanvasLayer/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 500.0
+offset_top = 61.0
+offset_right = 612.0
+offset_bottom = 93.0
+grow_horizontal = 2
+texture = ExtResource("6_1s7dg")
 
 [node name="Fin" type="Control" parent="CanvasLayer"]
 visible = false
@@ -283,13 +309,14 @@ stream = ExtResource("7_eojlu")
 [node name="build" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("14_ypw85")
 
-[node name="battle" type="AudioStreamPlayer" parent="TimeManager/sound"]
+[node name="battle2" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("7_eojlu")
 volume_db = -4.868
 
 [node name="day" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("14_ypw85")
 volume_db = -6.638
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_hil3c")
@@ -309,10 +336,10 @@ position = Vector2(622, 300)
 position = Vector2(623, 308)
 
 [node name="HolyPowers" type="Node2D" parent="."]
-visible = false
 script = ExtResource("12_frwvm")
 
 [node name="TunderPower" parent="HolyPowers" instance=ExtResource("13_yvpcy")]
+z_index = 4
 
 [connection signal="mouse_entered" from="CanvasLayer/BuildBtn" to="TileMap" method="_on_build_btn_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/BuildBtn" to="TileMap" method="_on_build_btn_mouse_exited"]
