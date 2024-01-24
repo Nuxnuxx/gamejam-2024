@@ -69,16 +69,6 @@ fill = 1
 fill_from = Vector2(0.502164, 0.495671)
 fill_to = Vector2(0.943723, 0.0649351)
 
-[sub_resource type="Gradient" id="Gradient_ndwwr"]
-offsets = PackedFloat32Array(0, 0.754491, 0.805389)
-colors = PackedColorArray(1, 0.670588, 0.356863, 1, 0.063197, 0.063197, 0.063197, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_pfbwy"]
-gradient = SubResource("Gradient_ndwwr")
-fill = 1
-fill_from = Vector2(0.502164, 0.495671)
-fill_to = Vector2(0.943723, 0.0649351)
-
 [node name="Building" type="Area2D"]
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.25, 0.234375)
