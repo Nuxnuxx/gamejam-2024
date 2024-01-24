@@ -1,0 +1,104 @@
+[gd_scene load_steps=7 format=3 uid="uid://bugaq4g405su"]
+
+[ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_ah4jw"]
+
+[sub_resource type="Gradient" id="Gradient_4nqs3"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eo62m"]
+gradient = SubResource("Gradient_4nqs3")
+fill_from = Vector2(0.997836, 0.0281385)
+
+[sub_resource type="FontFile" id="FontFile_ghkpt"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/70/0 = Vector2(0, 0)
+cache/0/70/0/ascent = 0.0
+cache/0/70/0/descent = 0.0
+cache/0/70/0/underline_position = 0.0
+cache/0/70/0/underline_thickness = 0.0
+cache/0/70/0/scale = 1.0
+cache/0/70/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/70/0/kerning_overrides/70/0 = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i250d"]
+font = SubResource("FontFile_ghkpt")
+font_size = 70
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+
+[sub_resource type="Theme" id="Theme_r3ec7"]
+default_font_size = 35
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ah4jw")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_eo62m")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -140.0
+offset_right = 204.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Cult of Arkhos"
+label_settings = SubResource("LabelSettings_i250d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.5
+offset_top = -35.0
+offset_right = 216.5
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_r3ec7")
+text = "JOUER"
+
+[node name="CodexBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = 83.0
+offset_right = 217.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_r3ec7")
+text = "CODEX"
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]

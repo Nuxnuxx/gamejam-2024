@@ -6,16 +6,15 @@ var tunder_cost = 15
 
 @onready var time_manager = $"../TimeManager"
 @onready var tunder_power_btn = $"../CanvasLayer/TunderPower"
-
+@onready var canvas_layer = $"../CanvasLayer"
 @onready var tunder_power = $TunderPower
 
 func _on_tunder_power_toggled(toggled_on):
 	if toggled_on && time_manager.holy_score >= tunder_cost:
 		use_tunder = true
-		print('tunder')
 	
 	elif toggled_on:
-		print("Pas assez de points")
+		canvas_layer.pop_up("Points de foi insufisants (" + str(time_manager.holy_score) + "/" + str(tunder_cost) + ")", 1.5)
 		use_tunder = false
 		tunder_power.visible = false
 		tunder_power_btn.set_pressed_no_signal(false)

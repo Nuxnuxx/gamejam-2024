@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=19 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -14,35 +14,8 @@
 [ext_resource type="Script" path="res://HolyPowers.gd" id="12_frwvm"]
 [ext_resource type="PackedScene" uid="uid://drm2ml7jpqal3" path="res://HolyPowers/tunder_power.tscn" id="13_yvpcy"]
 
-[sub_resource type="FontFile" id="FontFile_nhsaq"]
-cache/0/320/0/ascent = 0.0
-cache/0/320/0/descent = 0.0
-cache/0/320/0/underline_position = 0.0
-cache/0/320/0/underline_thickness = 0.0
-cache/0/320/0/scale = 1.0
-cache/0/320/0/kerning_overrides/320/0 = Vector2(0, 0)
-cache/0/320/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/320/0/kerning_overrides/100/0 = Vector2(0, 0)
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/320/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/100/0 = Vector2(0, 0)
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
-cache/0/100/0/kerning_overrides/320/0 = Vector2(0, 0)
-cache/0/100/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/100/0/kerning_overrides/100/0 = Vector2(0, 0)
-
-[sub_resource type="LabelSettings" id="LabelSettings_jf1jq"]
-font = SubResource("FontFile_nhsaq")
-font_size = 100
+[sub_resource type="LabelSettings" id="LabelSettings_polbt"]
+font_size = 40
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jero"]
 texture = ExtResource("4_b5y7g")
@@ -93,18 +66,11 @@ sources/2 = SubResource("TileSetAtlasSource_jxnbe")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_2s6iy")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Wawe is running"
-label_settings = SubResource("LabelSettings_jf1jq")
-metadata/_edit_use_anchors_ = true
-
 [node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 23.0
-offset_top = 114.0
-offset_right = 102.0
-offset_bottom = 145.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 85.0
+offset_bottom = 37.0
 toggle_mode = true
 text = "batiment"
 
@@ -120,12 +86,69 @@ texture_over = ExtResource("4_ki2pf")
 texture_progress = ExtResource("5_6fn3k")
 
 [node name="TunderPower" type="Button" parent="CanvasLayer"]
-offset_left = 34.0
-offset_top = 509.0
-offset_right = 228.0
-offset_bottom = 570.0
+offset_left = 2.0
+offset_top = 585.0
+offset_right = 72.0
+offset_bottom = 646.0
 toggle_mode = true
-text = "Saucisse pouvoir"
+text = "Ecl"
+
+[node name="BottomMessage" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -148.5
+offset_top = -23.0
+offset_right = 148.5
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveCounter" type="Label" parent="CanvasLayer"]
+texture_filter = 1
+offset_left = 1112.0
+offset_top = 4.0
+offset_right = 1148.0
+offset_bottom = 27.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 535.0
+offset_right = 577.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "score"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 510.0
+offset_top = 10.0
+offset_right = 602.0
+offset_bottom = 65.0
+grow_horizontal = 2
+text = "1000"
+label_settings = SubResource("LabelSettings_polbt")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimeManager" type="Node" parent="."]
 script = ExtResource("4_28pcd")
@@ -143,12 +166,13 @@ script = ExtResource("5_aep1n")
 [node name="batiments" type="Node" parent="."]
 
 [node name="Camera2D" parent="." instance=ExtResource("7_5lsws")]
-position = Vector2(606, 252)
+position = Vector2(622, 300)
 
 [node name="Obelix" parent="." instance=ExtResource("11_ecwpp")]
-position = Vector2(607, 252)
+position = Vector2(623, 308)
 
 [node name="HolyPowers" type="Node2D" parent="."]
+visible = false
 script = ExtResource("12_frwvm")
 
 [node name="TunderPower" parent="HolyPowers" instance=ExtResource("13_yvpcy")]
