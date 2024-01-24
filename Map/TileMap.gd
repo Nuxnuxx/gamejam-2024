@@ -1,9 +1,11 @@
 extends TileMap
 
-var GridSize = 5
+var GridSize = 200
 var Tab_tiles = {}
 var can_place_building_custom_data = "can_place_building"
 var tile_data
+var can_place_building
+var can_place_building_because_already_here
 var tile
 var building_is_selected = false
 var hover_objects
@@ -24,20 +26,20 @@ func _process(_delta):
 	tile = local_to_map(get_global_mouse_position())
 	hover_objects = to_global(map_to_local(tile))
 	tile_data = tile_map.get_cell_tile_data(0, tile)
+	can_place_building = tile_map.get_cell_tile_data(1, tile)
 	if tile_data :
 		for x in GridSize:
 			for y in GridSize:
-				erase_cell(1, Vector2i(x,y))
+				erase_cell(2, Vector2i(x,y))
 		if Tab_tiles.has(str(tile)) && building_is_selected:
-			set_cell(1, tile, 1, Vector2i(0,0), 0)
+			set_cell(2, tile, 1, Vector2i(0,0), 0)
 				
 func _input(_event):
-	if Input.is_action_just_pressed("click") && tile_data && building_is_selected:
-		var tile_test : Vector2i = local_to_map(get_global_mouse_position())
-		var can_place_building = tile_data.get_custom_data(can_place_building_custom_data)	
+	if Input.is_action_just_pressed("click") && building_is_selected:
+		var tile_pos : Vector2i = local_to_map(get_global_mouse_position())
 		if tile_data:
-			if can_place_building:
-				place_building(to_global(map_to_local(tile_test)))
+			if can_place_building == null:
+				place_building(to_global(map_to_local(tile_pos)))
 			else:
 				print("can't place")
 		else:
@@ -45,9 +47,8 @@ func _input(_event):
 
 func place_building(pos: Vector2):
 	var building = building.instantiate()
-	print(pos)
 	building.pos.x = pos.x
-	building.pos.y = pos.y - 8
+	building.pos.y = pos.y
 	building.is_set = true
 	batiments.add_child(building)
 
