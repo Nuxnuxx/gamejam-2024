@@ -24,7 +24,7 @@ func _on_tunder_power_toggled(toggled_on):
 		tunder_power_btn.set_pressed_no_signal(false)
 		tunder_power.visible = false
 		
-func _process(delta):
+func _process(_delta):
 	if use_tunder and !tunder_running:
 		tunder_power.before_run()
 		tunder_power.global_position = get_viewport().get_mouse_position()

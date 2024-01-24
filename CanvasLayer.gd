@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var spawner = $"../Spawner"
-@onready var label = $Label
 @onready var time_manager = $"../TimeManager"
 @onready var bottom_message = %BottomMessage
 @onready var score_label = $Score/ScoreLabel
