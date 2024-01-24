@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=31 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b6e6urlclwphs" path="res://UI/Powers/HolyBar_Charge.png" id="5_6fn3k"]
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
 [ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
+[ext_resource type="Texture2D" uid="uid://bi2qougm8135v" path="res://UI/FoudreLogo.png" id="5_qnyp4"]
 [ext_resource type="Texture2D" uid="uid://nwecrm0vsdql" path="res://UI/DecoTextDown.png" id="6_1s7dg"]
 [ext_resource type="AudioStream" uid="uid://bphlh45q6wwak" path="res://Music/main-theme.wav" id="6_4q420"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
@@ -24,6 +25,10 @@
 ambient_light_energy = 0.78
 glow_enabled = true
 fog_enabled = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_td0m0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v7jpo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_polbt"]
 font_size = 40
@@ -113,14 +118,19 @@ texture_progress = ExtResource("5_6fn3k")
 metadata/_edit_use_anchors_ = true
 
 [node name="TunderPower" type="Button" parent="CanvasLayer"]
+texture_filter = 1
 anchors_preset = -1
 anchor_right = 0.0486111
 offset_left = 2.0
-offset_top = 585.0
-offset_right = 72.0
-offset_bottom = 646.0
+offset_top = 566.0
+offset_right = -14.0
+offset_bottom = 606.0
+scale = Vector2(2, 2)
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_td0m0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_v7jpo")
 toggle_mode = true
-text = "Eclair"
+icon = ExtResource("5_qnyp4")
+flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="BottomMessage" type="Label" parent="CanvasLayer"]
@@ -175,14 +185,16 @@ offset_right = 577.0
 offset_bottom = 36.0
 grow_horizontal = 2
 text = "score"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Score"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.325
+anchor_left = 0.525
 anchor_top = 0.025
-anchor_right = 0.325
+anchor_right = 0.525
 anchor_bottom = 0.025
 offset_left = 510.0
 offset_top = 26.0
