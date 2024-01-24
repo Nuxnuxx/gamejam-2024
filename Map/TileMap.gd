@@ -5,9 +5,12 @@ var Tab_tiles = {}
 var can_place_building_custom_data = "can_place_building"
 var tile_data
 var tile
+var focus
 var building_is_selected = false
 var hover_objects
 
+@onready var time_manager = $"../TimeManager"
+@onready var canvas_layer = $"../CanvasLayer"
 @onready var batiments = $"../batiments"
 @onready var tile_map = $"."
 const building = preload("res://Actors/Building/Building.tscn")
@@ -32,17 +35,18 @@ func _process(_delta):
 			set_cell(2, tile, 1, Vector2i(0,0), 0)
 				
 func _input(_event):
-	if Input.is_action_just_pressed("click") && building_is_selected:
+	if Input.is_action_just_pressed("click") && building_is_selected && !focus:
 		var can_place_building = tile_map.get_cell_tile_data(1, tile)
 		var can_place_building_because_already_here = tile_map.get_cell_tile_data(3, tile)
 		if tile_data:
-			if can_place_building == null && can_place_building_because_already_here == null:
+			if can_place_building == null && can_place_building_because_already_here == null && time_manager.holy_score >= 10:
+				time_manager.holy_score -= 10
 				place_building(to_global(map_to_local(tile)))
 				set_cell(3, tile, 0, Vector2(0,1), 0)
 			else:
-				print("can't place")
+				canvas_layer.pop_up("Impossible a placer")
 		else:
-			print("no tile data")
+			pass
 
 func place_building(pos: Vector2):
 	var building = building.instantiate()
@@ -50,6 +54,15 @@ func place_building(pos: Vector2):
 	building.pos.y = pos.y
 	building.is_set = true
 	batiments.add_child(building)
+	
 
-func _on_button_pressed():
-	building_is_selected = !building_is_selected
+func _on_button_toggled(toggled_on):
+	building_is_selected = toggled_on
+
+
+func _on_build_btn_mouse_entered():
+	focus = true
+
+
+func _on_build_btn_mouse_exited():
+	focus = false

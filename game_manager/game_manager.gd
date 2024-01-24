@@ -11,7 +11,7 @@ const codex_ennemies = [
 		"name": "skeleton",
 		"difficulty": 2,
 		"difficulty_min": 0,
-		"speed": 50,
+		"speed": 100,
 		"health": 75,
 		"earning": 10,
 		"attacking_rate": 2,

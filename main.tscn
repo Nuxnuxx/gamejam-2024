@@ -66,7 +66,7 @@ sources/2 = SubResource("TileSetAtlasSource_jxnbe")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("3_2s6iy")
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="BuildBtn" type="Button" parent="CanvasLayer"]
 offset_left = 6.0
 offset_top = 6.0
 offset_right = 85.0
@@ -182,5 +182,7 @@ script = ExtResource("12_frwvm")
 
 [node name="TunderPower" parent="HolyPowers" instance=ExtResource("13_yvpcy")]
 
-[connection signal="pressed" from="CanvasLayer/Button" to="TileMap" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/BuildBtn" to="TileMap" method="_on_build_btn_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/BuildBtn" to="TileMap" method="_on_build_btn_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/BuildBtn" to="TileMap" method="_on_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/TunderPower" to="HolyPowers" method="_on_tunder_power_toggled"]

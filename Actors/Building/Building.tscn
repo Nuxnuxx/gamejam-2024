@@ -57,7 +57,7 @@ animations = [{
 size = Vector2(16, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tgfk"]
-radius = 116.0
+radius = 401.454
 
 [node name="Building" type="Area2D"]
 position = Vector2(0, 3.8147e-06)
@@ -66,7 +66,7 @@ script = ExtResource("1_5hbh2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_df1h4")
 autoplay = "default"
 frame_progress = 0.95339
