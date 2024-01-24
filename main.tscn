@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
 [ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
 [ext_resource type="AudioStream" uid="uid://bphlh45q6wwak" path="res://Music/main-theme.wav" id="6_4q420"]
-[ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
 [ext_resource type="AudioStream" uid="uid://ckcn1g8bacwad" path="res://Music/battle-theme.wav" id="7_eojlu"]
@@ -96,7 +95,8 @@ offset_top = 6.0
 offset_right = 85.0
 offset_bottom = 37.0
 toggle_mode = true
-text = "batiment"
+text = "Tour"
+metadata/_edit_use_anchors_ = true
 
 [node name="HolyBar" type="TextureProgressBar" parent="CanvasLayer"]
 texture_filter = 1
@@ -108,14 +108,18 @@ scale = Vector2(3, 3)
 fill_mode = 3
 texture_over = ExtResource("4_ki2pf")
 texture_progress = ExtResource("5_6fn3k")
+metadata/_edit_use_anchors_ = true
 
 [node name="TunderPower" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.0486111
 offset_left = 2.0
 offset_top = 585.0
 offset_right = 72.0
 offset_bottom = 646.0
 toggle_mode = true
-text = "Ecl"
+text = "Eclair"
+metadata/_edit_use_anchors_ = true
 
 [node name="BottomMessage" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -131,6 +135,7 @@ grow_horizontal = 2
 grow_vertical = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="WaveCounter" type="Label" parent="CanvasLayer"]
 texture_filter = 1
@@ -146,29 +151,36 @@ grow_vertical = 0
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Score" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Score"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.525
+anchor_top = 0.05
+anchor_right = 0.55
+anchor_bottom = -0.025
 offset_left = 535.0
 offset_right = 577.0
 offset_bottom = 23.0
 grow_horizontal = 2
 text = "score"
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Score"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.325
+anchor_top = 0.025
+anchor_right = 0.325
+anchor_bottom = 0.025
 offset_left = 510.0
 offset_top = 10.0
 offset_right = 602.0
@@ -178,6 +190,7 @@ text = "1000"
 label_settings = SubResource("LabelSettings_polbt")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Fin" type="Control" parent="CanvasLayer"]
 visible = false
@@ -283,13 +296,14 @@ stream = ExtResource("7_eojlu")
 [node name="build" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("14_ypw85")
 
-[node name="battle" type="AudioStreamPlayer" parent="TimeManager/sound"]
+[node name="battle2" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("7_eojlu")
 volume_db = -4.868
 
 [node name="day" type="AudioStreamPlayer" parent="TimeManager/sound"]
 stream = ExtResource("14_ypw85")
 volume_db = -6.638
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_hil3c")
