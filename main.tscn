@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=26 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -9,11 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://b6e6urlclwphs" path="res://UI/Powers/HolyBar_Charge.png" id="5_6fn3k"]
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
 [ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
+[ext_resource type="AudioStream" uid="uid://bphlh45q6wwak" path="res://Music/main-theme.wav" id="6_4q420"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
+[ext_resource type="AudioStream" uid="uid://ckcn1g8bacwad" path="res://Music/battle-theme.wav" id="7_eojlu"]
 [ext_resource type="PackedScene" uid="uid://bhr5so0ig54lm" path="res://Actors/Obelix/Obelix.tscn" id="11_ecwpp"]
 [ext_resource type="Script" path="res://HolyPowers.gd" id="12_frwvm"]
 [ext_resource type="PackedScene" uid="uid://drm2ml7jpqal3" path="res://HolyPowers/tunder_power.tscn" id="13_yvpcy"]
+[ext_resource type="AudioStream" uid="uid://dxgmlikqvmy3i" path="res://Music/build-theme.wav" id="14_ypw85"]
 
 [sub_resource type="Environment" id="Environment_xq1nb"]
 ambient_light_energy = 0.78
@@ -232,6 +235,17 @@ text = "score"
 
 [node name="TimeManager" type="Node" parent="."]
 script = ExtResource("4_28pcd")
+
+[node name="sound" type="Node" parent="TimeManager"]
+
+[node name="accueil" type="AudioStreamPlayer" parent="TimeManager/sound"]
+stream = ExtResource("6_4q420")
+
+[node name="battle" type="AudioStreamPlayer" parent="TimeManager/sound"]
+stream = ExtResource("7_eojlu")
+
+[node name="build" type="AudioStreamPlayer" parent="TimeManager/sound"]
+stream = ExtResource("14_ypw85")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1

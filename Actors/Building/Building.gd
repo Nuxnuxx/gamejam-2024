@@ -7,6 +7,7 @@ var health = 0
 @export var delay_to_shoot: float = 1
 @export var max_health: float = 100
 
+var collapse = preload("res://Sounds/tower-fireball.wav")
 const projectile = preload("res://Actors/Building/projectile.tscn")
 @onready var all_projectiles = $AllProjectiles
 @onready var start_point_projectile = $StartPointProjectile
