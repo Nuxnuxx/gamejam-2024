@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhr5so0ig54lm"]
+[gd_scene load_steps=18 format=3 uid="uid://bhr5so0ig54lm"]
 
 [ext_resource type="Texture2D" uid="uid://cexo6uvrudi3p" path="res://Sprites/Spritesheets/obelix.png" id="1_faxv0"]
 [ext_resource type="Script" path="res://Actors/Obelix/Obelix.gd" id="1_mu3l1"]
+[ext_resource type="AudioStream" uid="uid://cuyb6pj82ltqh" path="res://Sounds/end-game.wav" id="3_8j3gu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xsx4c"]
 
@@ -111,3 +112,6 @@ scale = Vector2(9.4375, 9.4375)
 color = Color(0.478431, 1, 1, 1)
 energy = 0.3
 texture = SubResource("GradientTexture2D_okjn7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8j3gu")
