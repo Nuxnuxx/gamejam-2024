@@ -28,9 +28,9 @@ func instance_entities_from_wawe(wawe: Dictionary)-> void:
 			instance.score_value = codex_info.score_value
 			
 			# Dans ennemy shape le premier element doit etre le sprite et le deuxieme, la collideBox
-			instance.add_child(ennemy_shape.get_child(0).duplicate(),false,1)
+			instance.add_child(ennemy_shape.get_child(1).duplicate(),false,1)
 			# Dans ennemy base le premier element doit etre l'area2d
-			instance.get_child(0).add_child(ennemy_shape.get_child(1).duplicate(),false,1)
+			instance.get_child(0).add_child(ennemy_shape.get_child(0).duplicate(),false,1)
 
 			spawn_points[index].add_child(instance)
 			index = (index + 1) % len(spawn_points)

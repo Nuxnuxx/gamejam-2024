@@ -7,7 +7,7 @@ var health = 0
 @export var delay_to_shoot: float = 1
 @export var max_health: float = 100
 
-@onready var projectile = $Projectile
+const projectile = preload("res://Actors/Building/projectile.tscn")
 @onready var all_projectiles = $AllProjectiles
 @onready var start_point_projectile = $StartPointProjectile
 var is_set = false
@@ -40,7 +40,7 @@ func attack_shoot():
 	
 	if len(mob_in_range):
 		var mob_to_shoot = mob_in_range[0]
-		var projectile_to_send = projectile.duplicate()
+		var projectile_to_send = projectile.instantiate()
 		
 		projectile_to_send.visible = true
 		projectile_to_send.global_position = start_point_projectile.global_position

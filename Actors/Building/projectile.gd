@@ -2,14 +2,14 @@ extends Area2D
 
 var target = null
  
-@export var speed = 10.0
+@export var speed = 5.0
 @export var damage = 50
 
 func _ready():
 	add_to_group("PROJECTILE", true)
 
 func _physics_process(_delta):
-	if target == null && visible:
+	if target == null && visible && get_parent().name == "AllProjectiles":
 		queue_free()
 		return
 	elif target == null:

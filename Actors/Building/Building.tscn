@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://xegxwc3xy61w"]
+[gd_scene load_steps=12 format=3 uid="uid://xegxwc3xy61w"]
 
 [ext_resource type="Script" path="res://Actors/Building/Building.gd" id="1_5hbh2"]
 [ext_resource type="Texture2D" uid="uid://dq02cbbxn87x4" path="res://Sprites/Spritesheets/magic_tower_sheet.png" id="2_ti6e3"]
-[ext_resource type="PackedScene" uid="uid://by2qh5yds36wn" path="res://Actors/Building/projectile.tscn" id="2_xyavm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjw0o"]
 atlas = ExtResource("2_ti6e3")
@@ -76,8 +75,6 @@ position = Vector2(0, -1.62761e-05)
 shape = SubResource("RectangleShape2D_3bh6v")
 
 [node name="StartPointProjectile" type="Marker2D" parent="."]
-
-[node name="Projectile" parent="." instance=ExtResource("2_xyavm")]
 
 [node name="ProjectileRange" type="Area2D" parent="."]
 

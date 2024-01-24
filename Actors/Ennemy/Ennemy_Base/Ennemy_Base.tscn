@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj0t6co6vbhsn"]
+[gd_scene load_steps=3 format=3 uid="uid://cj0t6co6vbhsn"]
 
 [ext_resource type="Script" path="res://Actors/Ennemy/Ennemy_Base/ennemy_base.gd" id="1_ybgna"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_oijeq"]
-radius = 92.0217
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5at6h"]
 radius = 28.2843
@@ -14,17 +11,8 @@ visibility_layer = 2
 collision_layer = 3
 collision_mask = 2
 script = ExtResource("1_ybgna")
-health = null
-focus = null
-speed = null
-attacking_damages = null
-attacking_rate = null
-score_value = null
 
 [node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_oijeq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
