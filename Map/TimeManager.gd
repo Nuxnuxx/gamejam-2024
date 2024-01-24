@@ -6,7 +6,7 @@ extends Node
 
 const WaweManager = preload("res://game_manager/wawe_manager.gd")
 
-var current_wawe = 0
+var current_wawe = 30
 var generate_wave = false
 
 var holy_score = 0

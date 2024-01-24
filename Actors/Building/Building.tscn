@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://xegxwc3xy61w"]
+[gd_scene load_steps=14 format=3 uid="uid://xegxwc3xy61w"]
 
 [ext_resource type="Script" path="res://Actors/Building/Building.gd" id="1_5hbh2"]
 [ext_resource type="Texture2D" uid="uid://dq02cbbxn87x4" path="res://Sprites/Spritesheets/magic_tower_sheet.png" id="2_ti6e3"]
+[ext_resource type="AudioStream" uid="uid://ci8srqcp71vlk" path="res://Sounds/tower-collapse.wav" id="3_lsdjw"]
+[ext_resource type="AudioStream" uid="uid://bljcg7pmlw28w" path="res://Sounds/tower-fireball.wav" id="4_cbrkl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjw0o"]
 atlas = ExtResource("2_ti6e3")
@@ -84,6 +86,12 @@ shape = SubResource("RectangleShape2D_3bh6v")
 shape = SubResource("CircleShape2D_0tgfk")
 
 [node name="AllProjectiles" type="Node" parent="."]
+
+[node name="Collapse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lsdjw")
+
+[node name="Fireball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cbrkl")
 
 [connection signal="area_entered" from="ProjectileRange" to="." method="_on_projectile_range_area_entered"]
 [connection signal="area_exited" from="ProjectileRange" to="." method="_on_projectile_range_area_exited"]

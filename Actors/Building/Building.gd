@@ -30,6 +30,7 @@ func self_damage(amount):
 	health -= amount
 	if health <= 0:
 		queue_free()
+		$Collapse.play()
 
 func attack_shoot():
 	var not_freed_mob_in_range = []
