@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bugaq4g405su"]
+[gd_scene load_steps=8 format=3 uid="uid://bugaq4g405su"]
 
 [ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_ah4jw"]
+[ext_resource type="AudioStream" uid="uid://bphlh45q6wwak" path="res://Music/main-theme.wav" id="2_6fkde"]
 
 [sub_resource type="Gradient" id="Gradient_4nqs3"]
 
@@ -100,5 +101,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_r3ec7")
 text = "CODEX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6fkde")
+autoplay = true
 
 [connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]

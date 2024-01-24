@@ -42,6 +42,16 @@ func get_focus_node()-> Node:
 func move_to(node: Node)-> void:
 	var direction = Vector2(node.global_position.x - global_position.x, node.global_position.y - global_position.y).normalized()
 	if direction.length() != 0 && !attacking:
+		
+		if direction.x < -0.1:
+			get_node("Sprite").play("walk_left")
+		elif direction.x > 0.1:
+			get_node("Sprite").play("walk_right")
+		elif direction.y < 0:
+			get_node("Sprite").play("walk_up")
+		else:
+			get_node("Sprite").play("walk_down")
+			
 		velocity.x = direction.x * speed
 		velocity.y = direction.y * speed
 		move_and_slide()
