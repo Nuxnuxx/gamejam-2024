@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs16yg5ikeyjs"]
+
+[ext_resource type="PackedScene" uid="uid://d06lova67fd83" path="res://Actors/Ennemy/EnnemyShape/EnnemyShapeSprite/fire_boss_sprite.tscn" id="1_d70iu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wac6n"]
+size = Vector2(46, 40)
+
+[node name="fire_boss" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+shape = SubResource("RectangleShape2D_wac6n")
+
+[node name="Sprite" parent="." instance=ExtResource("1_d70iu")]
+animation = &"walk_down"
+frame_progress = 0.0
