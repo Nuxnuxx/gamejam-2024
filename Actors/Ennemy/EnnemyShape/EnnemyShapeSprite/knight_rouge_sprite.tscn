@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://dut371mbhal5d"]
+
+[ext_resource type="Texture2D" uid="uid://dd3ypcpbfl6vw" path="res://Sprites/Spritesheets/knight_sheet-damage.png" id="1_x4fr2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjbjk"]
+atlas = ExtResource("1_x4fr2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ash7x"]
+atlas = ExtResource("1_x4fr2")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejcts"]
+atlas = ExtResource("1_x4fr2")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm2ek"]
+atlas = ExtResource("1_x4fr2")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jjuu"]
+atlas = ExtResource("1_x4fr2")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qas15"]
+atlas = ExtResource("1_x4fr2")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rfwf"]
+atlas = ExtResource("1_x4fr2")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxqwx"]
+atlas = ExtResource("1_x4fr2")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lc18k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjbjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ash7x")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejcts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm2ek")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jjuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qas15")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rfwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxqwx")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 3.0
+}]
+
+[node name="Sprite" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lc18k")
+animation = &"walk_up"
+autoplay = "walk_down"
