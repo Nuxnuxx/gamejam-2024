@@ -66,9 +66,11 @@ script = ExtResource("1_5hbh2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_df1h4")
 autoplay = "default"
 frame_progress = 0.95339
+offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.62761e-05)
