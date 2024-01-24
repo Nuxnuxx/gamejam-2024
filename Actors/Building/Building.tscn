@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xegxwc3xy61w"]
+[gd_scene load_steps=14 format=3 uid="uid://xegxwc3xy61w"]
 
 [ext_resource type="Script" path="res://Actors/Building/Building.gd" id="1_5hbh2"]
 [ext_resource type="Texture2D" uid="uid://dq02cbbxn87x4" path="res://Sprites/Spritesheets/magic_tower_sheet.png" id="2_ti6e3"]
@@ -59,6 +59,16 @@ size = Vector2(16, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tgfk"]
 radius = 401.454
 
+[sub_resource type="Gradient" id="Gradient_ndwwr"]
+offsets = PackedFloat32Array(0, 0.754491, 0.805389)
+colors = PackedColorArray(1, 0.670588, 0.356863, 1, 0.063197, 0.063197, 0.063197, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pfbwy"]
+gradient = SubResource("Gradient_ndwwr")
+fill = 1
+fill_from = Vector2(0.502164, 0.495671)
+fill_to = Vector2(0.943723, 0.0649351)
+
 [node name="Building" type="Area2D"]
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.25, 0.234375)
@@ -84,6 +94,12 @@ shape = SubResource("RectangleShape2D_3bh6v")
 shape = SubResource("CircleShape2D_0tgfk")
 
 [node name="AllProjectiles" type="Node" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -59.7334)
+scale = Vector2(6.5625, 6.5625)
+energy = 0.2
+texture = SubResource("GradientTexture2D_pfbwy")
 
 [connection signal="area_entered" from="ProjectileRange" to="." method="_on_projectile_range_area_entered"]
 [connection signal="area_exited" from="ProjectileRange" to="." method="_on_projectile_range_area_exited"]

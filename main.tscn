@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=20 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -13,6 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://bhr5so0ig54lm" path="res://Actors/Obelix/Obelix.tscn" id="11_ecwpp"]
 [ext_resource type="Script" path="res://HolyPowers.gd" id="12_frwvm"]
 [ext_resource type="PackedScene" uid="uid://drm2ml7jpqal3" path="res://HolyPowers/tunder_power.tscn" id="13_yvpcy"]
+
+[sub_resource type="Environment" id="Environment_xq1nb"]
+ambient_light_energy = 0.78
+glow_enabled = true
+fog_enabled = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_polbt"]
 font_size = 40
@@ -60,6 +65,13 @@ sources/1 = SubResource("TileSetAtlasSource_tknft")
 sources/2 = SubResource("TileSetAtlasSource_jxnbe")
 
 [node name="Main_Scene" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xq1nb")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.360784, 0.266667, 0.254902, 1)
+blend_mode = 1
 
 [node name="Spawner" parent="." instance=ExtResource("1_p8xiu")]
 
