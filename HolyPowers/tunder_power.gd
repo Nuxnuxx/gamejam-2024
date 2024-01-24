@@ -27,4 +27,4 @@ func apply_damages():
 	var mobs = get_mob_to_hit()
 
 	for mob in mobs:
-		mob.self_damage(500)
+		mob.self_damage(50)

@@ -48,6 +48,7 @@ stream = ExtResource("6_anjs4")
 
 [node name="Death" type="AudioStreamPlayer" parent="Serpent"]
 stream = ExtResource("7_sevri")
+
 [node name="skeleton" type="Node" parent="."]
 
 [node name="Attack" type="AudioStreamPlayer" parent="skeleton"]
@@ -77,5 +78,6 @@ volume_db = -24.39
 [node name="Death" type="AudioStreamPlayer" parent="serpent"]
 stream = ExtResource("7_sevri")
 volume_db = -19.802
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

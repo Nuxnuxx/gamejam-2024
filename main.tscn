@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://q0kj70kue1w0"]
+[gd_scene load_steps=28 format=3 uid="uid://q0kj70kue1w0"]
 
 [ext_resource type="PackedScene" uid="uid://csnqj86xqkwhh" path="res://Map/spawner.tscn" id="1_p8xiu"]
 [ext_resource type="Script" path="res://CanvasLayer.gd" id="3_2s6iy"]
@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://0kxq6pn8sh3n" path="res://Sprites/Spritesheets/background_tiles.png" id="4_b5y7g"]
 [ext_resource type="Texture2D" uid="uid://dvnb0t5mjrkpo" path="res://UI/Powers/HolyBar.png" id="4_ki2pf"]
 [ext_resource type="Texture2D" uid="uid://bm6t2f7vj036h" path="res://Sprites/Spritesheets/layer_select_sheet.png" id="5_0e3x1"]
+[ext_resource type="Texture2D" uid="uid://bnggsj8kbqpgi" path="res://UI/DecoTextUp.png" id="5_2nhu2"]
 [ext_resource type="Texture2D" uid="uid://b6e6urlclwphs" path="res://UI/Powers/HolyBar_Charge.png" id="5_6fn3k"]
 [ext_resource type="Script" path="res://Map/TileMap.gd" id="5_aep1n"]
 [ext_resource type="Script" path="res://Fin.gd" id="5_p8qoh"]
+[ext_resource type="Texture2D" uid="uid://nwecrm0vsdql" path="res://UI/DecoTextDown.png" id="6_1s7dg"]
 [ext_resource type="AudioStream" uid="uid://bphlh45q6wwak" path="res://Music/main-theme.wav" id="6_4q420"]
 [ext_resource type="Texture2D" uid="uid://3afi5ye227kj" path="res://Sprites/Spritesheets/house_sheet.png" id="6_vvtyi"]
 [ext_resource type="PackedScene" uid="uid://ca3o5e84r6wt6" path="res://Map/camera_2d.tscn" id="7_5lsws"]
@@ -95,7 +97,8 @@ offset_top = 6.0
 offset_right = 85.0
 offset_bottom = 37.0
 toggle_mode = true
-text = "batiment"
+text = "Tour"
+metadata/_edit_use_anchors_ = true
 
 [node name="HolyBar" type="TextureProgressBar" parent="CanvasLayer"]
 texture_filter = 1
@@ -107,14 +110,18 @@ scale = Vector2(3, 3)
 fill_mode = 3
 texture_over = ExtResource("4_ki2pf")
 texture_progress = ExtResource("5_6fn3k")
+metadata/_edit_use_anchors_ = true
 
 [node name="TunderPower" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.0486111
 offset_left = 2.0
 offset_top = 585.0
 offset_right = 72.0
 offset_bottom = 646.0
 toggle_mode = true
-text = "Ecl"
+text = "Eclair"
+metadata/_edit_use_anchors_ = true
 
 [node name="BottomMessage" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -130,6 +137,7 @@ grow_horizontal = 2
 grow_vertical = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="WaveCounter" type="Label" parent="CanvasLayer"]
 texture_filter = 1
@@ -145,38 +153,71 @@ grow_vertical = 0
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Score" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer/Score"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.525
+anchor_top = 0.05
+anchor_right = 0.55
+anchor_bottom = -0.025
 offset_left = 535.0
+offset_top = 13.0
 offset_right = 577.0
-offset_bottom = 23.0
+offset_bottom = 36.0
 grow_horizontal = 2
 text = "score"
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/Score"]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = -1
+anchor_left = 0.325
+anchor_top = 0.025
+anchor_right = 0.325
+anchor_bottom = 0.025
 offset_left = 510.0
-offset_top = 10.0
+offset_top = 26.0
 offset_right = 602.0
-offset_bottom = 65.0
+offset_bottom = 81.0
 grow_horizontal = 2
 text = "1000"
 label_settings = SubResource("LabelSettings_polbt")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TopDeco" type="TextureRect" parent="CanvasLayer/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 500.0
+offset_top = -8.0
+offset_right = 612.0
+offset_bottom = 24.0
+grow_horizontal = 2
+texture = ExtResource("5_2nhu2")
+
+[node name="DownDeco" type="TextureRect" parent="CanvasLayer/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 500.0
+offset_top = 61.0
+offset_right = 612.0
+offset_bottom = 93.0
+grow_horizontal = 2
+texture = ExtResource("6_1s7dg")
 
 [node name="Fin" type="Control" parent="CanvasLayer"]
 visible = false
@@ -226,10 +267,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -417.0
-offset_top = 254.0
-offset_right = -375.0
-offset_bottom = 277.0
+offset_left = -408.0
+offset_top = 273.0
+offset_right = -366.0
+offset_bottom = 296.0
 grow_horizontal = 2
 text = "score"
 
@@ -253,10 +294,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 310.0
-offset_top = 257.0
-offset_right = 352.0
-offset_bottom = 280.0
+offset_left = 313.0
+offset_top = 265.0
+offset_right = 355.0
+offset_bottom = 288.0
 grow_horizontal = 2
 text = "wave"
 
@@ -309,10 +350,10 @@ position = Vector2(622, 300)
 position = Vector2(623, 308)
 
 [node name="HolyPowers" type="Node2D" parent="."]
-visible = false
 script = ExtResource("12_frwvm")
 
 [node name="TunderPower" parent="HolyPowers" instance=ExtResource("13_yvpcy")]
+z_index = 4
 
 [connection signal="mouse_entered" from="CanvasLayer/BuildBtn" to="TileMap" method="_on_build_btn_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/BuildBtn" to="TileMap" method="_on_build_btn_mouse_exited"]

@@ -26,9 +26,10 @@ func _on_tunder_power_toggled(toggled_on):
 		
 func _process(_delta):
 	if use_tunder and !tunder_running:
+		canvas_layer.pop_up("before")
 		tunder_power.before_run()
 		tunder_power.global_position = get_viewport().get_mouse_position()
-
+		
 		if Input.is_action_pressed("click") and !tunder_running:
 			tunder_running = true
 			time_manager.holy_score -= tunder_cost

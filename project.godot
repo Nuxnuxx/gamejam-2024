@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/mode=2
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom_font="res://font.ttf"
+
 [input]
 
 click={
