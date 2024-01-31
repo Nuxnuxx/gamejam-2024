@@ -15,6 +15,10 @@ run/main_scene="res://Menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EnnemyBase="*res://Actors/Ennemy/Ennemy_Base/Ennemy_Base.tscn"
+
 [display]
 
 window/size/mode=2
